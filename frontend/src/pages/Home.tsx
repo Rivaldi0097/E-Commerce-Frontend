@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import { useGetProductCategoriesQuery } from "../redux/productSlice";
 import HomeProducts from "../components/HomeProducts";
+import Navbar from "../components/Navbar";
 
 function Home() {
 
@@ -23,6 +24,8 @@ function Home() {
 
     return (
         <div>
+                <Navbar></Navbar>
+        
                 <h2> Best Products For you!</h2>
 
                 {productCategories.map((categoryName: string) => {

@@ -4,11 +4,11 @@ import { store } from './redux/store';
 import './App.css';
 import RetrieveData from './components/RetrieveData';
 import Home from "./pages/Home";
-import Login from './pages/Login';
-
+import Login from "./pages/Login";
+import Account from "./pages/Account";
+import Cart from "./pages/Cart";
 
 function App() {
-
   return (
     <>
       <Provider store={store}>
@@ -17,6 +17,8 @@ function App() {
             <Route element={<RetrieveData/>}>
               <Route path="/" element={<Home/>} />
               <Route path="/login" element={<Login/>} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/cart" element={<Cart />} />
             </Route>
           </Routes>
         </Router>
