@@ -20,7 +20,7 @@ function Navbar() {
       <ul className="navbar__items">
         <li className="navbar__item">
           <span className="arrow__text">Category</span>
-          <img src={Arrow} className="arrow__icon" />
+          <img src={Arrow} className="arrow__icon" alt="arrow__icon"/>
         </li>
         <li className="navbar__item">Deals</li>
         <li className="navbar__item">What's New</li>
@@ -28,7 +28,7 @@ function Navbar() {
         <li className="navbar__item search__container">
           <div className="search">
             <span className="search__text">Search Product</span>
-            <img src={Search} className="search__icon" />
+            <img src={Search} className="search__icon" alt="search__icon"/>
           </div>
         </li>
         <li
@@ -37,7 +37,7 @@ function Navbar() {
             navigate("/account");
           }}
         >
-          <img src={User} className="icon" />
+          <img src={User} className="icon" alt="user_icon"/>
           <span className="icon__text">Account</span>
         </li>
         <li
@@ -46,7 +46,7 @@ function Navbar() {
             navigate("/cart");
           }}
         >
-          <img src={Cart} className="icon" />
+          <img src={Cart} className="icon" alt="text_icon"/>
           <span className="icon__text">Cart</span>
         </li>
       </ul>

@@ -2,7 +2,9 @@
 import { useEffect, useState } from 'react';
 import { ProductModel } from "../models/productModel";
 import { useGetProductsQuery } from "../redux/productSlice";
+import "../styles/homeProducts.css"
 import Button from './Button';
+import ProductStarReview from './ProductStarReview';
 
 function HomeProducts() {
     
@@ -12,6 +14,7 @@ function HomeProducts() {
     useEffect(()=> {
 
         if(!isLoading ){
+            console.log(data)
             setProducts(data)
         }else{
             setProducts([])
@@ -23,8 +26,8 @@ function HomeProducts() {
         <div className='ProductFlex'>
             {products.map((product: ProductModel, i:number) => {
                 return(
-                    <div className='ProductContainer'>
-                        <div key={i} className='Product'>
+                    <div key={i} className='ProductContainer'>
+                        <div className='Product'>
                             <div className='ImgContainer'>
                                 <img src={product.image} alt={product.title} className='ProductImg'/>
                             </div>
@@ -35,13 +38,18 @@ function HomeProducts() {
                                     </div>
 
                                     <div>
-                                        <p className='textFont'>${product.price}</p>
+                                        <p className='TextFont'>${product.price}</p>
                                     </div>
 
                                     {/* <p className='OverflowText'>{product.description}</p> */}
                             </div>
                         </div>
 
+
+                        <ProductStarReview 
+                            numberOfStars={Math.floor(product.rating.rate)}
+                            numberOfReviews={product.rating.count}
+                        />
                         
                         <Button
                             buttonWord="Add to cart!"

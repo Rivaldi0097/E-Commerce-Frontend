@@ -23,11 +23,14 @@ function Home() {
     }, [isLoading, data])
 
     return (
-        <div>
-                <Navbar></Navbar>
-        
+        <>
+            <Navbar/>
+            
+            <div className="ProductFlex">
                 <h2> Best Products For you!</h2>
+            </div>
 
+            <div className="ProductFlex">
                 {productCategories.map((categoryName: string) => {
                     return(
                         <Button
@@ -36,9 +39,10 @@ function Home() {
                         />
                     )
                 })}
+            </div>
 
-                <HomeProducts />
-        </div>
+            <HomeProducts />
+        </>
     );
 }
 
