@@ -8,6 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #f5f6f6;
   }
   
   .Product{
@@ -25,8 +26,8 @@
     padding: 30px;
     justify-content: center;
     align-items: center;
-    border: 3px solid #003d29;
     border-radius: 30px;
+    background-color: white;
   }
   
   .ProductImg{
@@ -65,8 +66,8 @@
   }
 
   .Star{
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
   }
 
   .ReviewsFlex{

@@ -1,21 +1,34 @@
 "use client"
 
 import React from 'react';
+import { ProductModel } from '../models/productModel';
 
 interface CategoryProps{
+    id:string,
     buttonWord: string,
+    selectedCategories: string,
+    setSelectedCategories: (selectedCategories: string) => void
 }
 
-function Button({buttonWord}: CategoryProps) {
+function CategoriesButton({buttonWord, selectedCategories, setSelectedCategories}: CategoryProps) {
 
+    const changeCategories = (e: React.MouseEvent<HTMLElement>) => {
+        setSelectedCategories(e.currentTarget.id)
+    }
     
 
     return (
 
-        <button type='button' className='Button'>
+        <button 
+            id={buttonWord}
+            type='button' 
+            className={buttonWord === selectedCategories? "SelectedButton" : "Button"}
+            onClick={changeCategories}
+
+        >
             {buttonWord}
         </button>
     );
 }
 
-export default Button;
+export default CategoriesButton;
