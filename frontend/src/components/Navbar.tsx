@@ -1,4 +1,5 @@
 import "../styles/navbar.css";
+import Logo from "../assets/logo-no-background.svg";
 import User from "../assets/user.svg";
 import Cart from "../assets/cart.svg";
 import Arrow from "../assets/arrow.svg";
@@ -10,13 +11,16 @@ function Navbar() {
 
   return (
     <div className="navbar">
-      <div className="navbar__title navbar__item logo">Shopcart</div>
-      {/* <div className="navbar__item">Categories</div>
-      <div className="navbar__item">Deals</div>
-      <div className="navbar__item">What's New</div>
-      <div className="navbar__item">Delivery</div>
-      <div className="navbar__item">Account</div>
-      <div className="navbar__item">Cart</div> */}
+      <div className="navbar__title navbar__item logo">
+        <img
+          src={Logo}
+          className="logo__icon"
+          onClick={() => {
+            navigate("/");
+          }}
+          alt="loot__logo"
+        ></img>
+      </div>
       <ul className="navbar__items">
         <li className="navbar__item">
           <span className="arrow__text">Category</span>
@@ -37,7 +41,7 @@ function Navbar() {
             navigate("/account");
           }}
         >
-          <img src={User} className="icon" alt="user_icon"/>
+          <img src={User} className="icon" alt="user__icon"/>
           <span className="icon__text">Account</span>
         </li>
         <li
@@ -46,7 +50,7 @@ function Navbar() {
             navigate("/cart");
           }}
         >
-          <img src={Cart} className="icon" alt="text_icon"/>
+          <img src={Cart} className="icon" alt="cart__icon"/>
           <span className="icon__text">Cart</span>
         </li>
       </ul>

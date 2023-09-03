@@ -9,6 +9,10 @@
   width: 10%;
 }
 
+.logo__icon {
+  width: 80%;
+}
+
 .navbar__items {
   display: flex;
   flex-wrap: wrap;
