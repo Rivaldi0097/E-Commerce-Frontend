@@ -10,10 +10,12 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
 import Cart from "./pages/Cart";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

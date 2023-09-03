@@ -1,4 +1,5 @@
 import "../styles/navbar.css";
+import Logo from "../assets/logo-no-background.svg";
 import User from "../assets/user.svg";
 import Cart from "../assets/cart.svg";
 import Arrow from "../assets/arrow.svg";
@@ -10,17 +11,20 @@ function Navbar() {
 
   return (
     <div className="navbar">
-      <div className="navbar__title navbar__item logo">Shopcart</div>
-      {/* <div className="navbar__item">Categories</div>
-      <div className="navbar__item">Deals</div>
-      <div className="navbar__item">What's New</div>
-      <div className="navbar__item">Delivery</div>
-      <div className="navbar__item">Account</div>
-      <div className="navbar__item">Cart</div> */}
+      <div className="navbar__title navbar__item logo">
+        <img
+          src={Logo}
+          className="logo__icon"
+          onClick={() => {
+            navigate("/");
+          }}
+          alt="Loot Logo"
+        ></img>
+      </div>
       <ul className="navbar__items">
         <li className="navbar__item">
           <span className="arrow__text">Category</span>
-          <img src={Arrow} className="arrow__icon" />
+          <img src={Arrow} className="arrow__icon" alt="Arrow Icon" />
         </li>
         <li className="navbar__item">Deals</li>
         <li className="navbar__item">What's New</li>
@@ -28,7 +32,7 @@ function Navbar() {
         <li className="navbar__item search__container">
           <div className="search">
             <span className="search__text">Search Product</span>
-            <img src={Search} className="search__icon" />
+            <img src={Search} className="search__icon" alt="Search Icon" />
           </div>
         </li>
         <li
@@ -37,7 +41,7 @@ function Navbar() {
             navigate("/account");
           }}
         >
-          <img src={User} className="icon" />
+          <img src={User} className="icon" alt="Account Icon" />
           <span className="icon__text">Account</span>
         </li>
         <li
@@ -46,7 +50,7 @@ function Navbar() {
             navigate("/cart");
           }}
         >
-          <img src={Cart} className="icon" />
+          <img src={Cart} className="icon" alt="Cart Icon" />
           <span className="icon__text">Cart</span>
         </li>
       </ul>
