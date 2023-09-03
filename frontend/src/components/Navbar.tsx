@@ -18,13 +18,13 @@ function Navbar() {
           onClick={() => {
             navigate("/");
           }}
-          alt="Loot Logo"
+          alt="loot__logo"
         ></img>
       </div>
       <ul className="navbar__items">
         <li className="navbar__item">
           <span className="arrow__text">Category</span>
-          <img src={Arrow} className="arrow__icon" alt="Arrow Icon" />
+          <img src={Arrow} className="arrow__icon" alt="arrow__icon"/>
         </li>
         <li className="navbar__item">Deals</li>
         <li className="navbar__item">What's New</li>
@@ -32,7 +32,7 @@ function Navbar() {
         <li className="navbar__item search__container">
           <div className="search">
             <span className="search__text">Search Product</span>
-            <img src={Search} className="search__icon" alt="Search Icon" />
+            <img src={Search} className="search__icon" alt="search__icon"/>
           </div>
         </li>
         <li
@@ -41,7 +41,7 @@ function Navbar() {
             navigate("/account");
           }}
         >
-          <img src={User} className="icon" alt="Account Icon" />
+          <img src={User} className="icon" alt="user__icon"/>
           <span className="icon__text">Account</span>
         </li>
         <li
@@ -50,7 +50,7 @@ function Navbar() {
             navigate("/cart");
           }}
         >
-          <img src={Cart} className="icon" alt="Cart Icon" />
+          <img src={Cart} className="icon" alt="cart__icon"/>
           <span className="icon__text">Cart</span>
         </li>
       </ul>

@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,11 +17,30 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Button{
+  padding: 15px;
+  background-color: white;
+  border: 2px solid #c5c5c5;
+  text-align: center;
+  min-width: 80px;
+  border-radius: 100px;
+  margin-right: 15px;
 }
+
+.Button:hover{
+  background-color: #003d29;
+  color: white;
+  border: 2px #003d29;
+}
+
+.SelectedButton{
+  padding: 15px;
+  background-color: #003d29;
+  border: 2px solid #003d29;
+  color: white;
+  text-align: center;
+  min-width: 80px;
+  border-radius: 100px;
+  margin-right: 15px;
+}
+
