@@ -1,5 +1,5 @@
 .navbar {
-  background-color: white;
+  background-color: #b2d4b6;
   display: flex;
   width: 100%;
   padding: 10px 0px;
@@ -9,7 +9,12 @@
   width: 10%;
 }
 
+.logo__icon {
+  width: 80%;
+}
+
 .navbar__items {
+  color: #4b514a;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -31,6 +36,7 @@
   vertical-align: middle;
   display: inline-block;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .icon {
@@ -41,6 +47,12 @@
 .arrow__icon {
   width: 13px;
   padding-left: 5px;
+}
+
+.rotated__arrow__icon {
+  width: 13px;
+  padding-right: 5px;
+  transform: rotate(180deg);
 }
 
 .icon__text {
@@ -54,7 +66,8 @@
 }
 
 .search {
-  background-color: rgb(234, 234, 234);
+  /* background-color: rgb(234, 234, 234); */
+  background-color: white;
   border-radius: 50px;
   width: 60%;
   height: 100%;
@@ -67,6 +80,7 @@
   margin: 5px 15px;
   top: 0.25em;
   position: relative;
+  font-weight: 400;
 }
 
 .search__icon {

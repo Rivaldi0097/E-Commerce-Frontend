@@ -8,12 +8,15 @@ import Login from "./pages/Login";
 import Account from "./pages/Account";
 import Cart from "./pages/Cart";
 import Product from './pages/Product';
+import Navbar from "./components/Navbar";
+
 
 function App() {
   return (
     <>
       <Provider store={store}>
         <Router>
+          <Navbar />
           <Routes>
             <Route element={<RetrieveData/>}>
               <Route path="/" element={<Home/>} />
