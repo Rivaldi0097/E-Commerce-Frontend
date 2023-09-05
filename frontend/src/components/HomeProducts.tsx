@@ -1,38 +1,26 @@
 "use client"
 import { useEffect, useState } from 'react';
 import { ProductModel } from "../models/productModel";
-import { useGetProductsQuery } from "../redux/productSlice";
 import "../styles/homeProducts.css"
-import Button from './Button';
 import ProductStarReview from './ProductStarReview';
+import { useNavigate } from 'react-router-dom';
 
 interface HomeProductsProps{
-    data: ProductModel[]
+    data: ProductModel[] | undefined
 }
 
 function HomeProducts({data}: HomeProductsProps) {
     
-    // const { data, isLoading} = useGetProductsQuery(undefined);
     const [products, setProducts] =  useState<any>([])
-
-    // useEffect(()=> {
-
-    //     if(!isLoading ){
-    //         console.log(data)
-    //         setProducts(data)
-    //     }else{
-    //         setProducts([])
-    //     }
-
-    // }, [isLoading, data])
+    const navigate = useNavigate();
 
     useEffect(() => {
         setProducts(
             <div className='ProductFlex'>
-                {data.map((product: ProductModel, i:number) => {
+                {data?.map((product: ProductModel, i:number) => {
                     return(
                         <div key={i} className='ProductContainer'>
-                            <div className='Product'>
+                            <div className='Product' onClick={()=>navigate(`/product/${product._id}`, {state: product})}>
                                 <div className='ImgContainer'>
                                     <img src={product.image} alt={product.title} className='ProductImg'/>
                                 </div>
@@ -45,8 +33,6 @@ function HomeProducts({data}: HomeProductsProps) {
                                         <div>
                                             <p className='TextFont'>${product.price}</p>
                                         </div>
-
-                                        {/* <p className='OverflowText'>{product.description}</p> */}
                                 </div>
                             </div>
 
@@ -57,7 +43,7 @@ function HomeProducts({data}: HomeProductsProps) {
                             />
 
                             <button type='button' className='Button'>
-                                "Add to cart!"
+                                Add to cart!
                             </button>
                             
                         </div>

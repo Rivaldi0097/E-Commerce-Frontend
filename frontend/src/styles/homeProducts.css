@@ -4,77 +4,77 @@
     margin: 0px 15px 0px 15px;
   }
   
-  .ProductFlex{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #f5f6f6;
-  }
-  
-  .Product{
-    margin:20px 20px 5px 20px;
-    height: 350px;
-    /* border: 2px solid #003d29; */
-  }
-  
-  .ProductButton{
-    margin: 0px 40px 0px 40px;
-  }
-  
-  .ImgContainer{
-    display: flex;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-    background-color: white;
-  }
-  
-  .ProductImg{
-    width: 200px;
-    height: 200px;
-    transition: width 0.3s, height 0.3s ;
-  }
-  
-  .ProductImg:hover{
-    width: 210px;
-    height: 210px;
-  }
-  
-  .MaxLimit{
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .MaxLimit div:nth-of-type(1) {flex-grow: 3;}
-  
-  .OverflowText{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    font-size: 15px;
-  }
-  
-  .ProductNameSize{
-    font-size: 15px;
-    max-width: 250px;
-  }
-  
-  .TextFont{
-    font-family: sans-serif;
-    font-weight: 600;
-  }
+.ProductFlex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #f5f6f6;
+}
 
-  .Star{
-    width: 25px;
-    height: 25px;
-  }
+.Product{
+  margin:20px 20px 5px 20px;
+  height: 350px;
+  /* border: 2px solid #003d29; */
+}
 
-  .ReviewsFlex{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-right: 30px;
-  }
+.ProductButton{
+  margin: 0px 40px 0px 40px;
+}
 
-  .ReviewsFlex div:nth-of-type(1) {flex-grow: 2;}
+.ImgContainer{
+  display: flex;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.ProductImg{
+  width: 200px;
+  height: 200px;
+  transition: width 0.3s, height 0.3s ;
+}
+
+.ProductImg:hover{
+  width: 210px;
+  height: 210px;
+}
+
+.MaxLimit{
+  display: flex;
+  flex-direction: row;
+}
+
+.MaxLimit div:nth-of-type(1) {flex-grow: 3;}
+
+.OverflowText{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.ProductNameSize{
+  font-size: 15px;
+  max-width: 250px;
+}
+
+.TextFont{
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.Star{
+  width: 25px;
+  height: 25px;
+}
+
+.ReviewsFlex{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.ReviewsFlex div:nth-of-type(1) {flex-grow: 2;}

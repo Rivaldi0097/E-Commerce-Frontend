@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react';
-import { ProductModel } from '../models/productModel';
 
 interface CategoryProps{
     id:string,
