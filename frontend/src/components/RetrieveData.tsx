@@ -8,8 +8,8 @@ function RetrieveData() {
     useEffect(()=>{
         //https://egghead.io/lessons/redux-prefetch-data-in-rtk-query-using-an-endpoint-s-initiate-method
 
-        store.dispatch(productSlice.endpoints.getProductCategories.initiate(undefined))
-        store.dispatch(productSlice.endpoints.getProducts.initiate(undefined))
+        store.dispatch(productSlice.endpoints.getProductCategories.initiate([]))
+        store.dispatch(productSlice.endpoints.getProducts.initiate([]))
 
     }, [])
 

@@ -5,43 +5,26 @@ import CategoriesButton from "../components/Button";
 import { useGetProductCategoriesQuery, useGetProductsQuery } from "../redux/productSlice";
 import HomeProducts from "../components/HomeProducts";
 import Navbar from "../components/Navbar";
+import { ProductModel } from "../models/productModel";
 
 function Home() {
 
-    const [productCategories, setProductCategories] = useState<any>([]);
-    const [products, setProducts] = useState<any>([]);
-    const [filteredProducts, setFilteredProducts] = useState<any>([]);
-    const { data: categoriesData, isLoading: categoriesLoading } = useGetProductCategoriesQuery(undefined);
-    const { data: productData, isLoading:productLoading} = useGetProductsQuery(undefined);
+    const [filteredProducts, setFilteredProducts] = useState<ProductModel[] | undefined>([]);
+    const { data: categoriesData, isLoading: categoriesLoading } = useGetProductCategoriesQuery([]);
+    const { data: productData, isLoading:productLoading} = useGetProductsQuery([]);
     const [selectedCategories, setSelectedCategories] = useState<string>("all");
 
-    useEffect(()=> {
-
-        if(!categoriesLoading && !productLoading){
-            setProductCategories(categoriesData)
-            setProducts(productData)
-            setFilteredProducts(productData)
-        }else{
-            setProductCategories([])
-            setProducts([])
-        }
-
-    }, [categoriesLoading, productLoading, categoriesData, productData])
 
     useEffect(() => {
-        
-
         if(selectedCategories === "all"){
-            setFilteredProducts(products)
+            setFilteredProducts(productData)
         }else{
-            const filteredProduct = products?.filter((obj:any) => obj.category === selectedCategories);
+            const filteredProduct = productData?.filter((obj:any) => obj.category === selectedCategories);
             setFilteredProducts(filteredProduct)
             
         }
 
-
-
-    }, [selectedCategories])
+    }, [selectedCategories, productData])
 
 
     return (
@@ -61,7 +44,7 @@ function Home() {
                     setSelectedCategories={setSelectedCategories}
                 />
                 
-                {productCategories.map((categoryName: string) => {
+                {categoriesData?.map((categoryName: string) => {
                     return(
                         <CategoriesButton
                             key={categoryName}
