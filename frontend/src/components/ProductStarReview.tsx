@@ -4,7 +4,7 @@ import Star from "../assets/star.svg";
 
 interface StarReview{
     numberOfStars: number,
-    numberOfReviews: number
+    numberOfReviews?: number
 }
 
 function ProductStarReview({numberOfStars, numberOfReviews}: StarReview) {
@@ -23,9 +23,14 @@ function ProductStarReview({numberOfStars, numberOfReviews}: StarReview) {
                 {stars}
             </div>
 
-            <div>
-                ({numberOfReviews})
-            </div>
+            {numberOfReviews?
+                <div>
+                    ({numberOfReviews})
+                </div>
+            :
+                <></>
+            }
+
         </div>
     );
 }
