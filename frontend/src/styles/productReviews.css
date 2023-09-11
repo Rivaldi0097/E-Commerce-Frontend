@@ -1,0 +1,48 @@
+:root{
+    --backgroundColor: #b2d4b6
+}
+
+.ReviewsFlexBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.ReviewBox{
+    border: 2px solid white;
+    background-color: white;
+    padding: 10px 50px 10px 50px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.PageNumberFlexBox{
+    background-color: var(--backgroundColor);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.PageNumnber{
+    margin: 0px 5px 0px 5px;
+    padding: 5px;
+}
+
+.PageNumberUndeline{
+    margin: 0px 5px 0px 5px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.ReviewBox div{
+    display: flex;
+    flex-direction: row;
+}
+
+.ReviewBox p:nth-of-type(1) {flex-grow: 1;}
+
+.PageControlButton{
+    border: 0px ;
+    background-color: var(--backgroundColor);
+    text-decoration: underline;
+}

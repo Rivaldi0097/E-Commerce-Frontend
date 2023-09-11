@@ -29,7 +29,6 @@ function Home() {
 
     return (
         <>
-            <Navbar/>
             
             <div className="ProductFlex">
                 <h2> Best Products For you!</h2>

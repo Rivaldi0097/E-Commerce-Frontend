@@ -3,7 +3,7 @@ import "../styles/categoryMenu.css";
 
 function CategoryMenu() {
   const { data: categoriesData, isSuccess: categoriesSuccess } =
-    useGetProductCategoriesQuery(undefined);
+    useGetProductCategoriesQuery([]);
 
   return (
     <div className="category__menu">
