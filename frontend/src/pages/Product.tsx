@@ -19,9 +19,11 @@ function Product() {
     return (
         <div className="PageContainer">
             <p className="ProductPath">Products / <span className='CurrentProduct'>{product.category}</span></p>
-
-            <div className='ProductImage'>
-                <img src={product.image} alt={product.title}  className='ImageSize'/>
+            
+            <div className='Flexbox'>
+                <div className='ProductImage'>
+                    <img src={product.image} alt={product.title}  className='ImageSize'/>
+                </div>
             </div>
             
             <div className='ProductDetails'>
@@ -87,7 +89,6 @@ function Product() {
                 <div className='ButtonFlexBox'>
 
                     <button className='BuyButton'>Buy Now</button>
-                    <br/>
                     <button className='BuyButton'>Add to Cart</button>
 
                 </div>
@@ -96,13 +97,11 @@ function Product() {
             
 
             <div className='ProductDescription'>
-                <hr className='SolidDivider' />
                 <h2>Product Description</h2>
                 <p>{product.description}</p>
             </div>
 
             <div className='ProductReviews'>
-            <hr className='SolidDivider' />
                 <h2>Product Reviews</h2>
                 <ProductReviews />
             </div>

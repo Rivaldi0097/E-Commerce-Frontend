@@ -65,12 +65,13 @@ function ProductReviews() {
                 return(
                     <div className='ReviewBox' key={obj._id}>
                         <div>
-                            <p>{obj.username}</p>
+                            <p>Username: <span className='Username'>{obj.username}</span></p>
                             <ProductStarReview 
                                 numberOfStars={obj.rating}
                             />
                         </div>
-        
+
+                        <p>Comment:</p>
                         <p>{obj.description}</p>
                     </div>
                 )
