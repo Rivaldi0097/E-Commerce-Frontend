@@ -14,7 +14,6 @@ function Product() {
     const navigate = useNavigate();
     const product = location.state;
     const [quantity, setQuantity] = useState<number>(0);
-    // console.log(location.state)
 
     return (
         <div className="PageContainer">
@@ -45,18 +44,19 @@ function Product() {
 
 
                 <div className='DeliveryBox'>
-                    <div>
+                    <div className='IconFlex'>
                         <img src={Truck} alt="truck" className='Icon'/>
                         <span>Free Delivery</span>
-                        <p>Enter your postal code for delivery options.</p>
                     </div>
+                    <p>Enter your postal code for delivery options.</p>
 
                     <hr className='DeliveryDivider' />
 
-                    <div>
-                        <img src={Box} alt="truck" className='Icon'/>Free Return
-                        <p>Free 30 days delivery return.</p>
+                    <div className='IconFlex'>
+                        <img src={Box} alt="truck" className='Icon'/>
+                        <p>Free Return</p>
                     </div>
+                    <p>Free 30 days delivery return.</p>
                 </div>
 
                 <div className='QuantityBox'>
@@ -71,7 +71,7 @@ function Product() {
                     <div>
                         <input
                             className='QuantityValue'
-                            type='number'
+                            type='text'
                             value={quantity}
                             onChange={() => setQuantity(quantity)}
                         />

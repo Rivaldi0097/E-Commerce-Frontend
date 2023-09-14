@@ -19,7 +19,7 @@ function ProductStarReview({numberOfStars, numberOfReviews}: StarReview) {
 
     return (
         <div className='ReviewsFlex'>
-            <div style={{marginLeft: "20px"}}>
+            <div style={{marginRight: "20px"}}>
                 {stars}
             </div>
 

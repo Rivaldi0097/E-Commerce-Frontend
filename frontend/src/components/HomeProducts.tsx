@@ -36,16 +36,16 @@ function HomeProducts({data}: HomeProductsProps) {
                                 </div>
                             </div>
 
+                            <div className='ReviewsAndButtonFlex'>
+                                <ProductStarReview 
+                                    numberOfStars={Math.floor(product.rating.rate)}
+                                    numberOfReviews={product.rating.count}
+                                />
 
-                            <ProductStarReview 
-                                numberOfStars={Math.floor(product.rating.rate)}
-                                numberOfReviews={product.rating.count}
-                            />
-
-                            <button type='button' className='Button'>
-                                Add to cart!
-                            </button>
-                            
+                                <button type='button' className='Button'>
+                                    Add to cart!
+                                </button>
+                            </div>
                         </div>
                     )
                 })}

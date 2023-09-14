@@ -2,7 +2,6 @@
     --backgroundColor: #eff0f5;
     --whiteBackground: white;
     background-color: var(--backgroundColor);
-    margin-right: 0px 10px 0px 10px;
 }
 
 .PageContainer{
@@ -10,7 +9,7 @@
     grid-auto-flow: column;
     justify-content: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.1fr 0.8fr 0.25fr 1fr;
+    grid-template-rows: 0.05fr 0.75fr 0.25fr 1fr;
     grid-template-areas: 
         "ProductPath ProductPath"
         "ProductImage ProductDetails"
@@ -18,14 +17,16 @@
         "ProductReviews ProductReviews"
     ;
     font-family: "Inter", sans-serif;
+    margin: 0px 20px 0px 20px;
 }
 
 .ProductPath{
     background-color: var(--whiteBackground);
     grid-area: ProductPath;
-    padding: 10px 0px 10px 40px;
+    padding: 20px 0px 10px 40px;
     text-transform: uppercase;
     max-height: 30px;
+    margin: 0px -20px 0px -20px;
 }
 
 .Flexbox{
@@ -33,7 +34,8 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    margin: 0px 0px 10px 20px;
+    margin: 20px 0px 30px 0px;
+    padding: 20px 0px 0px 0px;
 }
 
 .ProductImage{
@@ -47,21 +49,22 @@
     width: 45vw;
     height: 45vw;
     margin: 0px 30px 0px 40px;
-    max-width: 600px;
-    max-height: 600px;
+    max-width: 400px;
+    max-height: 400px;
 }
 
 .ImageSize{
     width: 30vw;
     height: 30vw;
-    max-width: 550px;
-    max-height: 550px;
+    max-width: 450px;
+    max-height: 450px;
 }
 
 .ProductDetails{
     grid-area: ProductDetails;
     background-color: var(--whiteBackground);
-    margin: 0px 20px 10px 0px;
+    margin: 20px 0px 30px 0px;
+    padding: 20px 0px 0px 0px;
 }
 
 .ProductPath{
@@ -77,7 +80,7 @@
 .SolidDivider{
     border-top: 3px solid #b2d4b6;
     margin: 30px 0px 30px 0px;
-    width: 90%;
+    width: 95%;
 }
 
 .ButtonFlexBox{
@@ -127,14 +130,20 @@
     padding: 10px 30px 10px 30px;
 }
 
+.IconFlex{
+    display: flex;
+    align-items: center;
+}
+
 .Icon{
     width: 30px;
     height: 30px;
     margin-right: 5px;
+    
 }
 
 .DeliveryDivider{
-    border-top: 3px solid white;
+    border-top: 3px solid #b2d4b6;
     width: 100%;
 }
 
@@ -144,15 +153,14 @@
     flex-direction: column;
     justify-content: center;
     background-color: var(--whiteBackground);
-    padding: 0px 20px 20px 20px;
-    margin: 0px 20px 0px 20px;
+    padding: 0px 20px 0px 20px;
 }
 
 .ProductReviews{
     grid-area: ProductReviews;
     background-color: var(--whiteBackground);
     padding: 20px 20px 20px 20px;
-    margin: 10px 20px 40px 20px;
+    margin: 30px 0px 40px 0px;
 }
 
 .BuyButton{

@@ -1,6 +1,10 @@
-import React from 'react';
+"Use client"
+
 
 function Login() {
+
+    
+
     return (
         <div>
             login page
