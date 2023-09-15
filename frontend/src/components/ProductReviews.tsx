@@ -15,7 +15,7 @@ function ProductReviews() {
     const [displayReviews, setDisplayReviews] = useState<any>();
 
     useEffect(()=>{
-        axios.get(`http://3.27.117.173:5001/api/reviews/64dccb9d3ff94327259d9ae6`)
+        axios.get(`${process.env.REACT_APP_HOSTNAME}/api/reviews/64dccb9d3ff94327259d9ae6`)
         .then((res) => {
             
             if(res.data.length != 0){
