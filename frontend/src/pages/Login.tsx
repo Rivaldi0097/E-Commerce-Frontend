@@ -1,29 +1,33 @@
 "Use client"
 
 import { useState } from "react";
-import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import { useGetLoginMutation } from "../redux/loginSlice";
 import "../styles/login.css";
 import Logo from "../assets/logo-no-background.svg";
 
 function Login() {
 
+    const navigate = useNavigate();
+
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [disable, setDisable] = useState<boolean>(false);
+    const [toLogin, {isLoading, isSuccess}] = useGetLoginMutation();
 
     const login = async () => {
         
         setDisable(true)
 
         try {
-            const res = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/login`, {
-                username: username,
-                password: password
-            })
 
-            console.log(res)
-            localStorage.setItem("userId", res.data._id)
-            setDisable(false)
+
+            if(!isSuccess){
+                const res = await toLogin({username: username, password: password})
+
+                setDisable(false)
+                navigate('/')
+            }
 
         } catch (error) {
             console.log(error)

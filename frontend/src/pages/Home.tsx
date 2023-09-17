@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import CategoriesButton from "../components/Button";
 import { useGetProductCategoriesQuery, useGetProductsQuery } from "../redux/productSlice";
 import HomeProducts from "../components/HomeProducts";
-import Navbar from "../components/Navbar";
 import { ProductModel } from "../models/productModel";
 
 function Home() {

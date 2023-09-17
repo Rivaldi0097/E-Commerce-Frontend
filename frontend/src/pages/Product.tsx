@@ -7,6 +7,7 @@ import "../styles/productDetails.css";
 import ProductStarReview from '../components/ProductStarReview';
 import Truck from "../assets/truck.svg";
 import Box from "../assets/box.svg";
+import axios from 'axios';
 
 function Product() {
 
@@ -14,6 +15,10 @@ function Product() {
     const navigate = useNavigate();
     const product = location.state;
     const [quantity, setQuantity] = useState<number>(0);
+
+    // const addToCart = async () => {
+    //     const res = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/cart/`)
+    // }
 
     return (
         <div className="PageContainer">

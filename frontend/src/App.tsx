@@ -9,6 +9,7 @@ import Account from "./pages/Account";
 import Cart from "./pages/Cart";
 import Product from './pages/Product';
 import Navbar from "./components/Navbar";
+import SignUp from './pages/SignUp';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route element={<RetrieveData/>}>
               <Route path="/" element={<Home/>} />
               <Route path="/login" element={<Login/>} />
+              <Route path="/signUp" element={<SignUp/>} />
               <Route path="/account" element={<Account />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/product">
