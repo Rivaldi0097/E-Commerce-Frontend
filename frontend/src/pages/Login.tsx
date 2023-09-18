@@ -20,8 +20,6 @@ function Login() {
         setDisable(true)
 
         try {
-
-
             if(!isSuccess){
                 const res = await toLogin({username: username, password: password})
 
@@ -86,6 +84,7 @@ function Login() {
                         <p>Don't have an account yet?</p>
                         <button 
                             className="LoginButton"
+                            onClick={() => {navigate('/signup')}}
                             disabled={disable}
                         >
                             Register here!
