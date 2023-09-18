@@ -83,6 +83,7 @@ tr:nth-last-child(2) > td {
 
 .delete__icon {
   width: 25px;
+  cursor: pointer;
 }
 
 .total__row {
