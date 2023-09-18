@@ -168,7 +168,7 @@ function CartTable() {
     // }
 
     axios
-      .patch(`http://localhost:5001/api/cart/${cartId}`, payload)
+      .patch(`http://3.27.117.173:5001/api/cart/${cartId}`, payload)
       .then((res) => {
         console.log(res.data);
         setCartData(res.data.products);
@@ -201,12 +201,14 @@ function CartTable() {
         },
       })
       .then((res) => {
-        setCartData(
-          cartData.filter((product) => {
-            console.log(product);
-            return product.product._id !== productId;
-          })
-        );
+        console.log(res);
+        // setCartData(
+        //   cartData.filter((product) => {
+        //     console.log(product);
+        //     return product.product._id !== productId;
+        //   })
+        // );
+        setCartData(res.data.products);
       });
     console.log("removes ", productId);
   };
