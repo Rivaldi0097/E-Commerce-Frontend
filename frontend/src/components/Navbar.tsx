@@ -53,7 +53,12 @@ function Navbar() {
           <li
             className="navbar__item"
             onClick={() => {
-              navigate("/account");
+              if(localStorage.getItem("userId") === null){
+                navigate('/login')
+              }else{
+                navigate("/account");
+              }
+
             }}
           >
             <img src={User} className="icon" alt="user__icon" />
