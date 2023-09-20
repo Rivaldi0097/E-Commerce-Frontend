@@ -45,20 +45,29 @@ function Navbar() {
           <li className="navbar__item">What's New</li>
           <li className="navbar__item">Delivery</li>
           <li className="navbar__item search__container">
-            <div className="search">
+            {/* <div className="search"> */}
+            <img src={Search} className="search__icon" alt="search__icon" />
+
+            <input
+              type="text"
+              className="search__input"
+              placeholder="Search Product"
+            ></input>
+            {/* </div> */}
+
+            {/* <div className="search">
               <span className="search__text">Search Product</span>
               <img src={Search} className="search__icon" alt="search__icon" />
-            </div>
+            </div> */}
           </li>
           <li
             className="navbar__item"
             onClick={() => {
-              if(localStorage.getItem("userId") === null){
-                navigate('/login')
-              }else{
+              if (localStorage.getItem("userId") === null) {
+                navigate("/login");
+              } else {
                 navigate("/account");
               }
-
             }}
           >
             <img src={User} className="icon" alt="user__icon" />
