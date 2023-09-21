@@ -17,7 +17,7 @@ function SearchResults() {
   useEffect(() => {
     setResult(
       productsData?.filter((product) =>
-        product.title.toLowerCase().includes(keyword)
+        product.title.toLowerCase().includes(keyword.toLowerCase())
       )
     );
     console.log("results ", result);
