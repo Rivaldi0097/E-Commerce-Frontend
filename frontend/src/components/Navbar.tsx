@@ -6,11 +6,27 @@ import Arrow from "../assets/arrow.svg";
 import Search from "../assets/search.svg";
 import CategoryMenu from "./CategoryMenu";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Navbar() {
   const navigate = useNavigate();
   const [showCategory, setShowCategory] = useState<boolean>(false);
+  const [keyword, setKeyword] = useState<string>("");
+
+  const handleRedirect = () => {
+    navigate(`/result`, { state: keyword });
+  };
+
+  const handleKeyChange = (e: any) => {
+    if (e.key === "Enter") {
+      setKeyword(e.target.value);
+    }
+  };
+
+  useEffect(() => {
+    console.log("REDIRECT");
+    handleRedirect();
+  }, [keyword]);
 
   return (
     <>
@@ -46,12 +62,20 @@ function Navbar() {
           <li className="navbar__item">Delivery</li>
           <li className="navbar__item search__container">
             {/* <div className="search"> */}
-            <img src={Search} className="search__icon" alt="search__icon" />
+            <img
+              src={Search}
+              className="search__icon"
+              alt="search__icon"
+              onClick={handleRedirect}
+            />
 
             <input
               type="text"
               className="search__input"
               placeholder="Search Product"
+              onKeyDown={(e) => {
+                handleKeyChange(e);
+              }}
             ></input>
             {/* </div> */}
 
