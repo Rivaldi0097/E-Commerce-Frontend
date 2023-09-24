@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react';
 import { ProductModel } from "../models/productModel";
-import "../styles/homeProducts.css"
+import "../styles/productListings.css"
 import ProductStarReview from './ProductStarReview';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ interface HomeProductsProps{
     data: ProductModel[] | undefined
 }
 
-function HomeProducts({data}: HomeProductsProps) {
+function ProductListings({data}: HomeProductsProps) {
     
     const [products, setProducts] =  useState<any>([])
     const navigate = useNavigate();
@@ -60,4 +60,4 @@ function HomeProducts({data}: HomeProductsProps) {
     );
 }
 
-export default HomeProducts;
+export default ProductListings;
