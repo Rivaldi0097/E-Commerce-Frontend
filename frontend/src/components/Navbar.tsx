@@ -12,21 +12,37 @@ function Navbar() {
   const navigate = useNavigate();
   const [showCategory, setShowCategory] = useState<boolean>(false);
   const [keyword, setKeyword] = useState<string>("");
+  const [timestamp, setTimestamp] = useState<number>(0);
 
   const handleRedirect = () => {
-    navigate(`/result`, { state: keyword });
+    navigate(`/result/${keyword}`);
   };
 
   const handleKeyChange = (e: any) => {
+    // to set the state of keyword on every change
+    setKeyword(e.target.value);
+    console.log(e.target.value);
+    // to trigger redirect to search results page when enter is pressed
     if (e.key === "Enter") {
-      setKeyword(e.target.value);
+      if (keyword !== "") {
+        console.log(e.timeStamp);
+        setTimestamp(e.timeStamp);
+      } else {
+        handleRedirectHome();
+      }
     }
   };
 
   useEffect(() => {
     console.log("REDIRECT");
     handleRedirect();
-  }, [keyword]);
+  }, [timestamp]);
+
+  // to reset the search to empty when back at home page
+  const handleRedirectHome = () => {
+    setKeyword("");
+    navigate("/");
+  };
 
   return (
     <>
@@ -35,9 +51,7 @@ function Navbar() {
           <img
             src={Logo}
             className="logo__icon"
-            onClick={() => {
-              navigate("/");
-            }}
+            onClick={handleRedirectHome}
             alt="loot__logo"
           ></img>
         </div>
@@ -73,6 +87,10 @@ function Navbar() {
               type="text"
               className="search__input"
               placeholder="Search Product"
+              value={keyword}
+              onChange={(e) => {
+                handleKeyChange(e);
+              }}
               onKeyDown={(e) => {
                 handleKeyChange(e);
               }}

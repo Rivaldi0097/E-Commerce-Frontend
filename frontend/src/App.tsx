@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import "./App.css";
@@ -28,9 +33,10 @@ function App() {
               <Route path="/product">
                 <Route path=":productName" element={<Product />} />
               </Route>
-              <Route path="/result" element={<SearchResults />}>
+              <Route path="/result/:keyword" element={<SearchResults />}>
                 {/* <Route path=":keyword" element={<SearchResults />} /> */}
               </Route>
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
           </Routes>
         </Router>
