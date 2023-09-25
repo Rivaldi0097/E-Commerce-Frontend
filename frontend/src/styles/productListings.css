@@ -1,14 +1,28 @@
-.ProductContainer{
-    display: flex;
-    flex-direction: column;
-    margin: 0px 15px 0px 15px;
-  }
+.HomeProductFlex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: #f5f6f6;
+  margin: 0px 10vw 0px 10vw;
+  padding: 0px 0vw 0px 5vw;
   
+}
+
 .ProductFlex{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #f5f6f6;
+  margin: 0px 10vw 10vh 10vw;
+  padding: 0px 0vw 0px 5vw;
+  
+}
+
+.ProductContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 15px 0px 15px;
+    width: 350px;
 }
 
 .Product{

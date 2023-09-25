@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import CategoriesButton from "../components/Button";
 import { useGetProductCategoriesQuery, useGetProductsQuery } from "../redux/productSlice";
-import HomeProducts from "../components/HomeProducts";
+import ProductListings from "../components/ProductListings";
 import { ProductModel } from "../models/productModel";
+import Slider from "../components/Slider";
 
 function Home() {
 
@@ -28,37 +29,43 @@ function Home() {
 
     return (
         <>
+
+            <Slider />
             
-            <div className="ProductFlex">
-                <h2> Best Products For you!</h2>
-            </div>
+            <>
 
-            <div className="ProductFlex">
-                <CategoriesButton 
-                    key={"all"}
-                    id={"all"}
-                    buttonWord={"all"}
-                    selectedCategories={selectedCategories}
-                    setSelectedCategories={setSelectedCategories}
+                <div className="HomeProductFlex">
+                    <h2> Best Products For you!</h2>
+                </div>
+
+                <div className="HomeProductFlex">
+                    <CategoriesButton 
+                        key={"all"}
+                        id={"all"}
+                        buttonWord={"all"}
+                        selectedCategories={selectedCategories}
+                        setSelectedCategories={setSelectedCategories}
+                    />
+                    
+                    {categoriesData?.map((categoryName: string) => {
+                        return(
+                            <CategoriesButton
+                                key={categoryName}
+                                id={categoryName}
+                                buttonWord={categoryName}
+                                //to set the selected category
+                                selectedCategories={selectedCategories}
+                                setSelectedCategories={setSelectedCategories}
+                            />
+                        )
+                    })}
+                </div>
+
+                <ProductListings 
+                    data={filteredProducts}
                 />
-                
-                {categoriesData?.map((categoryName: string) => {
-                    return(
-                        <CategoriesButton
-                            key={categoryName}
-                            id={categoryName}
-                            buttonWord={categoryName}
-                            //to set the selected category
-                            selectedCategories={selectedCategories}
-                            setSelectedCategories={setSelectedCategories}
-                        />
-                    )
-                })}
-            </div>
 
-            <HomeProducts 
-                data={filteredProducts}
-            />
+            </>
         </>
     );
 }

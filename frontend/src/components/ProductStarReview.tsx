@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/homeProducts.css";
+import "../styles/productListings.css";
 import Star from "../assets/star.svg";
 
 interface StarReview{
@@ -19,7 +19,7 @@ function ProductStarReview({numberOfStars, numberOfReviews}: StarReview) {
 
     return (
         <div className='ReviewsFlex'>
-            <div style={{marginRight: "20px"}}>
+            <div style={{marginRight: "5px"}}>
                 {stars}
             </div>
 
