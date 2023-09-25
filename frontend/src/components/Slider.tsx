@@ -11,19 +11,23 @@ function Slider() {
     const sliderData = [
         Keyboard, Watch, Headphone, ShoeSlideShow
     ]
-    const [slide, setSlide] = useState<any>(
-        <div className='SlideContent'>
-            <img src={sliderData[slideNumber]} alt='lmao1' className='SlideImg' />
-        </div>
-    )
 
-    useEffect(() => {
-        setSlide(
-            <div className='SlideContent'>
-                <img src={sliderData[slideNumber]} alt='lmao1' className='SlideImg'/>
-            </div>
-        )
-    }, [slideNumber])
+    const previous = () => {
+
+        if(slideNumber - 1 < 0){
+            setSlideNumber(sliderData.length - 1)
+        }else{
+            setSlideNumber(slideNumber - 1)
+        }
+    }
+
+    const next = () => {
+        if(slideNumber + 1 ===  sliderData.length){
+            setSlideNumber(0)
+        }else{
+            setSlideNumber(slideNumber + 1)
+        }
+    }
     
 
 
@@ -34,27 +38,29 @@ function Slider() {
                 {/* for previous button */}
                 <button 
                     className='previous'
-                    onClick={() => {
-                        slideNumber - 1 < 0?
-                            setSlideNumber(sliderData.length - 1)
-                        :
-                            setSlideNumber(slideNumber - 1)
-                    }}
+                    onClick={previous}
                 >
                     &lt;
                 </button>
 
-                {slide}
+                {sliderData.map((name, i) => {
+                    return(
+                        <div 
+                            className = "SlideContent"
+                            key={i}
+                            style={{
+                                display: slideNumber === i ? "" : 'none'
+                            }}
+                        >
+                            <img src={sliderData[i]} alt='lmao1' className='SlideImg'/>
+                        </div>
+                    )
+                })}
                 
                 {/* for next button */}
                 <button 
                     className='next'
-                    onClick={() => {
-                        slideNumber + 1 ===  sliderData.length?
-                            setSlideNumber(0)
-                        :
-                            setSlideNumber(slideNumber + 1)
-                    }}
+                    onClick={next}
                 > 
                     &gt;
                 </button>
