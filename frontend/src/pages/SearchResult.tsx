@@ -86,11 +86,9 @@ function SearchResults() {
             backgroundColor: "#f5f6f6",
             textAlign: "center",
             margin: "0",
-            padding: "20px",
-            // height: "100%",
-            height: "calc(100vh - 5vh)",
-            display: "flex",
-            flexFlow: "column",
+            flexGrow: "1",
+            paddingTop: "20px",
+            height: "calc(100vh - 5vh - 40px)",
           }}
         >
           No products found
