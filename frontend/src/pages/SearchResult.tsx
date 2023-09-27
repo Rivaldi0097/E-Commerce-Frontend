@@ -1,6 +1,6 @@
 import { useGetProductsQuery } from "../redux/productSlice";
 import { ProductModel } from "../models/productModel";
-import HomeProducts from "../components/HomeProducts";
+import ProductListings from "../components/ProductListings";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -77,7 +77,7 @@ function SearchResults() {
         >
           Search results for "{keyword}"
         </h2>
-        <HomeProducts data={result} />
+        <ProductListings data={result} />
       </>
     ) : (
       <>
