@@ -10,7 +10,8 @@ import Cart from "./pages/Cart";
 import Product from './pages/Product';
 import Navbar from "./components/Navbar";
 import SignUp from './pages/SignUp';
-
+import ForgetPassword from './pages/ForgetPassword';
+import ResetPassword from './pages/ResetPassword';
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/product">
                 <Route path=":productName" element={<Product/>} />
+              </Route>
+              <Route path='/forgetPassword'>
+                  <Route path='enterEmail' element={<ForgetPassword/>} />
+                  <Route path='resetPassword' element={<ResetPassword/>} />
               </Route>
             </Route>
           </Routes>

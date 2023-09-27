@@ -12,6 +12,7 @@ input::-webkit-inner-spin-button {
     grid-template-areas: 
         "LogoItem FieldItem"
     ;
+    
 }
 
 .LogoItem{
@@ -64,9 +65,10 @@ input::-webkit-inner-spin-button {
 .LoginButton{
     border: 0px;
     padding: 10px;
-    background-color: #4b514a;
+    background-color: #38503d;
     color: white;
     border-radius: 10px;
+    font-weight: 600;
 }
 
 .LoginButton:disabled{
@@ -74,8 +76,21 @@ input::-webkit-inner-spin-button {
 }
 
 .LoginButton:hover:enabled{
-    background-color: white;
-    color: #4b514a;
+    background-color: #08200d;
+    color: white;
+}
+
+.OrSeperator{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.OrDivider{
+    border-top: 2px solid #38503d;
+    margin: 30px 5px 30px 5px;
+    width: 95%;
 }
 
 @media only screen and (max-width: 940px){
@@ -86,6 +101,7 @@ input::-webkit-inner-spin-button {
             "FieldItem"
         ;
         margin-top: 1vh;
+        min-height: 95vh;
     }
 
     .FieldFlexbox{
@@ -119,4 +135,28 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     /* margin-right: 30px; */
     flex-grow: 1;
+}
+
+.InputContainer{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.PasswordInput{
+    flex-grow: 1;
+    border: 0px;
+    margin: 10px 0px 15px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.PasswordIcon{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    height: 25px;
+    width: 25px;
 }

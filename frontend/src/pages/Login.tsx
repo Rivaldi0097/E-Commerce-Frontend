@@ -13,14 +13,15 @@ function Login() {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [disable, setDisable] = useState<boolean>(false);
-    const [toLogin, {isLoading, isSuccess}] = useGetLoginMutation();
+    const [toLogin, {isError, isSuccess, isLoading}] = useGetLoginMutation();
 
     const login = async () => {
         
         setDisable(true)
 
         try {
-            if(!isSuccess){
+            if(!isLoading){
+                console.log('here')
                 const res = await toLogin({username: username, password: password})
 
                 setDisable(false)
@@ -81,6 +82,12 @@ function Login() {
                             Login
                         </button>
 
+                        <div className="OrSeperator">
+                            <span className="OrDivider"/>
+                            <p>OR</p>
+                            <span className="OrDivider"/>
+                        </div>
+
                         <p>Don't have an account yet?</p>
                         <button 
                             className="LoginButton"
@@ -89,6 +96,17 @@ function Login() {
                         >
                             Register here!
                         </button>
+
+                        <a
+                            onClick={() => {navigate('/forgetPassword/enterEmail')}}
+                            style={{
+                                marginTop: '20px',
+                                textDecoration: 'underline',
+                                cursor:'pointer'
+                            }}
+                        >
+                            Forgot your password?
+                        </a>
 
                 </div>
             </div>
