@@ -14,8 +14,11 @@ import Account from "./pages/Account";
 import Cart from "./pages/Cart";
 import Product from "./pages/Product";
 import Navbar from "./components/Navbar";
-import SignUp from "./pages/SignUp";
+import SignUp from './pages/SignUp';
+import ForgetPassword from './pages/ForgetPassword';
+import ResetPassword from './pages/ResetPassword';
 import SearchResults from "./pages/SearchResult";
+
 
 function App() {
   return (
@@ -35,6 +38,10 @@ function App() {
               </Route>
               <Route path="/result/:keyword" element={<SearchResults />}>
                 {/* <Route path=":keyword" element={<SearchResults />} /> */}
+              </Route>
+              <Route path='/forgetPassword'>
+                  <Route path='enterEmail' element={<ForgetPassword/>} />
+                  <Route path='resetPassword' element={<ResetPassword/>} />
               </Route>
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
