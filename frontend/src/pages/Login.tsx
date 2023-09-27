@@ -13,25 +13,36 @@ function Login() {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [disable, setDisable] = useState<boolean>(false);
-    const [toLogin, {isError, isSuccess, isLoading}] = useGetLoginMutation();
+    const [toLogin, {isLoading}] = useGetLoginMutation();
+
+    const [errorMessage, setErrorMessage] = useState<string>('');
+    const [error, setError] = useState<boolean>(false);
 
     const login = async () => {
         
+        setError(false)
         setDisable(true)
 
-        try {
-            if(!isLoading){
-                console.log('here')
-                const res = await toLogin({username: username, password: password})
+        if(!isLoading){
 
+            await toLogin({username: username, password: password})
+            .unwrap()
+            .then((res) => {
+                
                 setDisable(false)
                 navigate('/')
-            }
+            })
+            .catch((err) => {
+                
+                setErrorMessage(err.data.error)
+                setError(true)
+                setDisable(false)
+            })
 
-        } catch (error) {
-            console.log(error)
-            setDisable(false)
+            // navigate('/')
         }
+
+
 
     }
 
@@ -82,6 +93,19 @@ function Login() {
                             Login
                         </button>
 
+                        {error?
+                            <p 
+                                style={{
+                                    textAlign:'center', 
+                                    color:'red'
+                                }}
+                            >
+                                {errorMessage}
+                            </p>
+                        :
+                            <></>
+                        }
+                        
                         <div className="OrSeperator">
                             <span className="OrDivider"/>
                             <p>OR</p>

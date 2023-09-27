@@ -23,11 +23,14 @@ export const loginSlice = createApi({
             query: (obj) => ({
                 url: '/api/users/login',
                 method:'POST',
-                body: obj
+                body: obj,
             }),
             async onQueryStarted(obj, {queryFulfilled}){
                 queryFulfilled.then((res) => {
                     localStorage.setItem("userId", res.data._id)
+                })
+                .catch((err) => {
+                    
                 })
             }
         })
