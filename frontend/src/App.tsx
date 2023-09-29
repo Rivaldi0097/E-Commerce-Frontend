@@ -18,6 +18,7 @@ import SignUp from './pages/SignUp';
 import ForgetPassword from './pages/ForgetPassword';
 import ResetPassword from './pages/ResetPassword';
 import SearchResults from "./pages/SearchResult";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -41,11 +42,12 @@ function App() {
               </Route>
               <Route path='/forgetPassword'>
                   <Route path='enterEmail' element={<ForgetPassword/>} />
-                  <Route path='resetPassword' element={<ResetPassword/>} />
+                  <Route path='resetPassword/:uid/:token' element={<ResetPassword/>} />
               </Route>
-              <Route path="*" element={<Navigate to="/" replace />} />
+              {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
             </Route>
           </Routes>
+          <Footer/>
         </Router>
       </Provider>
     </>

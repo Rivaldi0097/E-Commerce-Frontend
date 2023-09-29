@@ -1,0 +1,108 @@
+.Cursor{
+    cursor: pointer;
+}
+
+.FooterContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #eff0f5;
+    width: 100vw;
+    min-height: 30vh;
+    margin: 50px 0px 50px 0px;
+
+}
+
+.FooterOuter{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0px 10.5vw 0px 10vw;
+    background-color: #f5f6f6;
+    padding: 40px 0px 40px 0px;
+}
+
+.PaymentColumn{
+    grid-area: PaymentColumn;
+}
+
+.CategoriesColumn{
+    grid-area: CategoriesColumn;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.AboutUsColumn{
+    grid-area: AboutUsColumn;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ServicesColumn{
+    grid-area: ServicesColumn;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.HelpColumn{
+    grid-area: HelpColumn;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.FooterLogo{
+    width: 150px;
+    height: 100px;
+}
+
+.PaymentLogo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 200px;
+}
+
+.SolidDivider{
+    border-top: 3px solid #b2d4b6;
+    margin: 30px 0px 30px 0px;
+    width: 95%;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){
+    .FooterOuter{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+            "PaymentColumn PaymentColumn CategoriesColumn"
+            "AboutUsColumn ServicesColumn HelpColumn"
+        ;
+    }
+
+    .PaymentColumn, .AboutUsColumn{
+        padding-left: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .FooterOuter{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+            "CategoriesColumn AboutUsColumn"
+            "ServicesColumn HelpColumn"
+            "PaymentColumn PaymentColumn"
+        ;
+    }
+
+    .PaymentColumn, .CategoriesColumn, .AboutUsColumn, .ServicesColumn, .HelpColumn{
+        padding-left: 30px;
+    }
+}
