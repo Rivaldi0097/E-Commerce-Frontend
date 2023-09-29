@@ -50,6 +50,7 @@ function ProductListings({data}: HomeProductsProps) {
                         </div>
                     )
                 })}
+                    <div className='ProductContainer ItemEmpty' />
                 </div>
             </div>
         )
@@ -58,6 +59,7 @@ function ProductListings({data}: HomeProductsProps) {
     return (
         <>
             {products}
+            
         </>
     );
 }
