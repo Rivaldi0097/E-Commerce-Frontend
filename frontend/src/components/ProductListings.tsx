@@ -16,7 +16,8 @@ function ProductListings({data}: HomeProductsProps) {
 
     useEffect(() => {
         setProducts(
-            <div className='ProductFlex'>
+            <div className='ProductOuter'>
+                <div className='ProductInner'>
                 {data?.map((product: ProductModel, i:number) => {
                     return(
                         <div key={i} className='ProductContainer'>
@@ -49,6 +50,7 @@ function ProductListings({data}: HomeProductsProps) {
                         </div>
                     )
                 })}
+                </div>
             </div>
         )
     }, [data])

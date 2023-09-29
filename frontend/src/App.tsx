@@ -18,6 +18,7 @@ import SignUp from "./pages/SignUp";
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResult";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -38,13 +39,14 @@ function App() {
               <Route path="/result/:keyword" element={<SearchResults />}>
                 {/* <Route path=":keyword" element={<SearchResults />} /> */}
               </Route>
-              <Route path="/forgetPassword">
-                <Route path="enterEmail" element={<ForgetPassword />} />
-                <Route path="resetPassword" element={<ResetPassword />} />
+              <Route path='/forgetPassword'>
+                  <Route path='enterEmail' element={<ForgetPassword/>} />
+                  <Route path='resetPassword/:uid/:token' element={<ResetPassword/>} />
               </Route>
               {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
             </Route>
           </Routes>
+          <Footer/>
         </Router>
       </Provider>
     </>

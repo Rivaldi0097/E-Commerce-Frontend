@@ -1,19 +1,26 @@
 .HomeProductFlex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   background-color: #f5f6f6;
   margin: 0px 10vw 0px 10vw;
-  padding: 0px 0vw 0px 5vw;
 }
 
-.ProductFlex {
+.ProductOuter{
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   background-color: #f5f6f6;
-  margin: 0px 10vw 10vh 10vw;
-  padding: 0px 0vw 5vw 5vw;
+  margin: 0px 10vw 0vh 10vw;
+}
+
+.ProductInner{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 1525px;
+  margin-bottom: 40px;
 }
 
 .ProductContainer {
@@ -26,7 +33,6 @@
 .Product {
   margin: 20px 20px 5px 20px;
   height: 350px;
-  /* border: 2px solid #003d29; */
 }
 
 .ProductButton {
