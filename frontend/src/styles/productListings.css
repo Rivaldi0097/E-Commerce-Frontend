@@ -23,11 +23,15 @@
   margin-bottom: 40px;
 }
 
-.ProductContainer {
-  display: flex;
-  flex-direction: column;
-  margin: 30px 15px 0px 15px;
-  width: 350px;
+.ItemEmpty {
+  visibility: hidden;
+}
+
+.ProductContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 15px 0px 15px;
+    width: 350px;
 }
 
 .Product {
