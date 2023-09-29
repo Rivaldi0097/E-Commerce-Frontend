@@ -14,12 +14,11 @@ import Account from "./pages/Account";
 import Cart from "./pages/Cart";
 import Product from "./pages/Product";
 import Navbar from "./components/Navbar";
-import SignUp from './pages/SignUp';
-import ForgetPassword from './pages/ForgetPassword';
-import ResetPassword from './pages/ResetPassword';
+import SignUp from "./pages/SignUp";
+import ForgetPassword from "./pages/ForgetPassword";
+import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResult";
 import Footer from "./components/Footer";
-
 
 function App() {
   return (

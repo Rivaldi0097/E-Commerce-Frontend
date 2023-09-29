@@ -1,4 +1,4 @@
-.HomeProductFlex{
+.HomeProductFlex {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -23,23 +23,23 @@
   margin-bottom: 40px;
 }
 
-.ProductContainer{
-    display: flex;
-    flex-direction: column;
-    margin: 30px 15px 0px 15px;
-    width: 350px;
+.ProductContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 15px 0px 15px;
+  width: 350px;
 }
 
-.Product{
-  margin:20px 20px 5px 20px;
+.Product {
+  margin: 20px 20px 5px 20px;
   height: 350px;
 }
 
-.ProductButton{
+.ProductButton {
   margin: 0px 40px 0px 40px;
 }
 
-.ImgContainer{
+.ImgContainer {
   display: flex;
   padding: 30px;
   justify-content: center;
@@ -48,47 +48,49 @@
   background-color: white;
 }
 
-.ProductImg{
+.ProductImg {
   width: 200px;
   height: 200px;
-  transition: width 0.3s, height 0.3s ;
+  transition: width 0.3s, height 0.3s;
 }
 
-.ProductImg:hover{
+.ProductImg:hover {
   width: 210px;
   height: 210px;
 }
 
-.MaxLimit{
+.MaxLimit {
   display: flex;
   flex-direction: row;
 }
 
-.MaxLimit div:nth-of-type(1) {flex-grow: 3;}
+.MaxLimit div:nth-of-type(1) {
+  flex-grow: 3;
+}
 
-.OverflowText{
+.OverflowText {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   font-size: 15px;
 }
 
-.ProductNameSize{
+.ProductNameSize {
   font-size: 15px;
   max-width: 250px;
 }
 
-.TextFont{
+.TextFont {
   font-family: sans-serif;
   font-weight: 600;
 }
 
-.Star{
+.Star {
   width: 25px;
   height: 25px;
 }
 
-.ReviewsFlex{
+.ReviewsFlex {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -98,7 +100,7 @@
 
 /* .ReviewsFlex div:nth-of-type(1) {flex-grow: 1;} */
 
-.ReviewsAndButtonFlex{
+.ReviewsAndButtonFlex {
   display: flex;
   flex-direction: column;
   padding: 0px 0px 0px 20px;

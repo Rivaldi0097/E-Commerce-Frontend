@@ -5,19 +5,13 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function SearchResults() {
-  // const location = useLocation();
-  // const keyword = location.state;
-  // type QueryParams = {
-  //   keyword: string;
-  // };
   const { keyword } = useParams<{ keyword: string }>();
   const [result, setResult] = useState<ProductModel[] | undefined>([]);
   const navigate = useNavigate();
-  // var content = <></>;
   const { data: productsData } = useGetProductsQuery([]);
 
   useEffect(() => {
-    console.log("keyword ", keyword);
+    // console.log("keyword ", keyword);
 
     if (keyword !== undefined) {
       setResult(
@@ -25,44 +19,11 @@ function SearchResults() {
           product.title.toLowerCase().includes(keyword.toLowerCase())
         )
       );
-      console.log("results ", result);
+      // console.log("results ", result);
     } else {
       navigate("/");
     }
   }, [keyword]);
-
-  // {
-  //   result && result.length > 0
-  //     ? (content = (
-  //         <>
-  //           <h2
-  //             style={{
-  //               backgroundColor: "#f5f6f6",
-  //               textAlign: "center",
-  //               margin: "0",
-  //               padding: "20px",
-  //             }}
-  //           >
-  //             Search results for "{keyword}"
-  //           </h2>
-  //           <HomeProducts data={result} />
-  //         </>
-  //       ))
-  //     : (content = (
-  //         <>
-  //           <h2
-  //             style={{
-  //               backgroundColor: "#f5f6f6",
-  //               textAlign: "center",
-  //               margin: "0",
-  //               padding: "20px",
-  //             }}
-  //           >
-  //             No products found
-  //           </h2>
-  //         </>
-  //       ));
-  // }
 
   const content =
     result && result.length > 0 ? (
@@ -71,8 +32,8 @@ function SearchResults() {
           style={{
             backgroundColor: "#f5f6f6",
             textAlign: "center",
-            margin: "0",
-            padding: "20px",
+            margin: "2vw 10vw 0px 10vw",
+            padding: "20px 20px 0px 20px",
           }}
         >
           Search results for "{keyword}"
