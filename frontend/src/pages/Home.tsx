@@ -32,8 +32,6 @@ function Home() {
 
             <Slider />
             
-            <>
-
                 <div className="HomeProductFlex">
                     <h2> Best Products For you!</h2>
                 </div>
@@ -65,7 +63,6 @@ function Home() {
                     data={filteredProducts}
                 />
 
-            </>
         </>
     );
 }
