@@ -41,7 +41,7 @@ function Footer() {
                     <h4>Categories</h4>
                     {department.map((name: string) => {
                         return(
-                            <a className='Cursor'>{name}</a>
+                            <a className='Cursor' key={name}>{name}</a>
                         )
                     })}
                 </div>
@@ -50,7 +50,7 @@ function Footer() {
                     <h4>About Us</h4>
                     {aboutUs.map((name: string) => {
                         return(
-                            <a className='Cursor'>{name}</a>
+                            <a className='Cursor' key={name}>{name}</a>
                         )
                     })}
                 </div>
@@ -59,7 +59,7 @@ function Footer() {
                     <h4>Services</h4>
                     {services.map((name: string) => {
                         return(
-                            <a className='Cursor'>{name}</a>
+                            <a className='Cursor' key={name}>{name}</a>
                         )
                     })}
                 </div>
@@ -68,7 +68,7 @@ function Footer() {
                     <h4>Help</h4>
                     {help.map((name: string) => {
                         return(
-                            <a className='Cursor'>{name}</a>
+                            <a className='Cursor' key={name}>{name}</a>
                         )
                     })}
                 </div>
