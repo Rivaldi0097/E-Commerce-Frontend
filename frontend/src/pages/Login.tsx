@@ -64,7 +64,7 @@ function Login() {
 
                         <h1>Hello! Welcome Back.</h1>
 
-                        <label>Username lmao</label>
+                        <label>Username</label>
                         <input 
                             type="text" 
                             className="LoginTextField"
