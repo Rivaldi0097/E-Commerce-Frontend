@@ -218,9 +218,9 @@ function Navbar() {
                   />
                 </li>
                 {showCategory ? <ResponsiveCategoryMenu /> : <></>}
-                <li className="navbar__item__responsive">Deals</li>
-                <li className="navbar__item__responsive">What's New</li>
-                <li className="navbar__item__responsive">Delivery</li>
+                {/* <li className="navbar__item__responsive">Deals</li> */}
+                {/* <li className="navbar__item__responsive">What's New</li>
+                <li className="navbar__item__responsive">Delivery</li> */}
                 <li className="navbar__item__responsive search__container">
                   <img
                     src={Search}
@@ -293,9 +293,9 @@ function Navbar() {
                 />
               </li>
               {showCategory ? <CategoryMenu /> : <></>}
-              <li className="navbar__item">Deals</li>
-              <li className="navbar__item">What's New</li>
-              <li className="navbar__item">Delivery</li>
+              {/* <li className="navbar__item">Deals</li> */}
+              {/* <li className="navbar__item">What's New</li>
+              <li className="navbar__item">Delivery</li> */}
               <li className="navbar__item search__container">
                 <img
                   src={Search}

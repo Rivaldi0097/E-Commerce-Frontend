@@ -122,6 +122,12 @@
   position: relative;
 }
 
+/* @media screen and (min-width: 1025px) and (max-width: 1323px) {
+  .icon__text {
+    display: none;
+  }
+} */
+
 @media screen and (min-width: 767px) and (max-width: 1025px) {
   .navbar__items > .navbar__item {
     display: none;
