@@ -30,7 +30,7 @@ export const loginSlice = createApi({
                     localStorage.setItem("userId", res.data._id)
                 })
                 .catch((err) => {
-                    
+                    console.log(err)
                 })
             }
         })

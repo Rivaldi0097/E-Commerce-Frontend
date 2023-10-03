@@ -14,6 +14,14 @@ function ProductListings({data}: HomeProductsProps) {
     const [products, setProducts] =  useState<any>([])
     const navigate = useNavigate();
 
+    const addToÇart = async () => {
+        if(localStorage.getItem("userId") === null){
+            navigate('/login')
+        }else{
+            console.log('lmao')
+        }
+    }
+
     useEffect(() => {
         setProducts(
             <div className='ProductOuter'>

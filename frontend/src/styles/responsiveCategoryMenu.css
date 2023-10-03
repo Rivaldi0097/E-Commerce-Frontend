@@ -1,0 +1,21 @@
+.category__menu__responsive {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 6px;
+}
+
+.category__items__responsive {
+  background-color: var(--button-color);
+  color: white;
+  flex: 35%;
+  padding: 15px 20px;
+  margin: 5px;
+  text-transform: capitalize;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.category__items__responsive:hover {
+  background-color: var(--button-color-hover);
+}
