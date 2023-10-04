@@ -58,6 +58,12 @@ function SignUp() {
                     zip: zip
                 }
             })
+
+            console.log(res)
+
+            const cartRes = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/cart/`, {
+                userId: await res.data._id
+            })
     
             localStorage.setItem("userId", res.data._id)
             setDisable(false)

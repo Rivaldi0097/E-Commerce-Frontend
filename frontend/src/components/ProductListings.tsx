@@ -14,6 +14,14 @@ function ProductListings({data}: HomeProductsProps) {
     const [products, setProducts] =  useState<any>([])
     const navigate = useNavigate();
 
+    const addToCart = async () => {
+        if(localStorage.getItem("userId") === null){
+            navigate('/login')
+        }else{
+            console.log('lmao')
+        }
+    }
+
     useEffect(() => {
         setProducts(
             <div className='ProductOuter'>
@@ -50,6 +58,7 @@ function ProductListings({data}: HomeProductsProps) {
                         </div>
                     )
                 })}
+                    <div className='ProductContainer ItemEmpty' />
                 </div>
             </div>
         )
@@ -58,6 +67,7 @@ function ProductListings({data}: HomeProductsProps) {
     return (
         <>
             {products}
+            
         </>
     );
 }
