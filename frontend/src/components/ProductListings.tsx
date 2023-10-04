@@ -14,7 +14,7 @@ function ProductListings({data}: HomeProductsProps) {
     const [products, setProducts] =  useState<any>([])
     const navigate = useNavigate();
 
-    const addToÇart = async () => {
+    const addToCart = async () => {
         if(localStorage.getItem("userId") === null){
             navigate('/login')
         }else{

@@ -16,7 +16,13 @@ interface LoginProps{
 
 export const loginSlice = createApi({
     reducerPath: 'loginApi',
-    baseQuery: fetchBaseQuery({baseUrl: process.env.REACT_APP_HOSTNAME}), 
+    baseQuery: fetchBaseQuery({
+        baseUrl: process.env.REACT_APP_HOSTNAME,
+        prepareHeaders(headers){
+            return headers
+        },
+        credentials:'include'
+    }),
     tagTypes: ['Login'],
     endpoints: (builder) => ({
         getLogin: builder.mutation<Login, LoginProps>({
@@ -27,7 +33,7 @@ export const loginSlice = createApi({
             }),
             async onQueryStarted(obj, {queryFulfilled}){
                 queryFulfilled.then((res) => {
-                    localStorage.setItem("userId", res.data._id)
+                    // localStorage.setItem("userId", res.data._id)
                 })
                 .catch((err) => {
                     console.log(err)

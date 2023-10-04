@@ -20,6 +20,7 @@ import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResult";
 import Footer from "./components/Footer";
 import CategoryProducts from "./pages/CategoryProducts";
+import SessionCheck from "./components/SessionCheck";
 
 function App() {
   return (
@@ -29,13 +30,23 @@ function App() {
           <Navbar />
           <Routes>
             <Route element={<RetrieveData />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signUp" element={<SignUp />} />
-              <Route path="/account" element={<Account />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/product">
-                <Route path=":productName" element={<Product />} />
+              <Route  element={<SessionCheck/>}>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signUp" element={<SignUp />} />
+                <Route path="/account" element={<Account />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/product">
+                  <Route path=":productName" element={<Product />} />
+                </Route>
+                <Route path="/result/:keyword" element={<SearchResults />}>
+                  {/* <Route path=":keyword" element={<SearchResults />} /> */}
+                </Route>
+                <Route path='/forgetPassword'>
+                    <Route path='enterEmail' element={<ForgetPassword/>} />
+                    <Route path='resetPassword/:uid/:token' element={<ResetPassword/>} />
+                </Route>
+                {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
               </Route>
               <Route path="/result/:keyword" element={<SearchResults />}>
                 {/* <Route path=":keyword" element={<SearchResults />} /> */}
