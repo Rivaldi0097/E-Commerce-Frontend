@@ -17,11 +17,11 @@ function Navbar() {
   const [keyword, setKeyword] = useState<string>("");
   const [menu, setMenu] = useState<boolean>(false);
   const [width, setWidth] = useState<number>(window.innerWidth);
-  console.log("window size", window.innerWidth);
+  // console.log("window size", window.innerWidth);
 
   const handleKeyChange = (e: any) => {
     // to set the state of keyword on every change
-    setKeyword(e.target.value);
+    // setKeyword(e.target.value);
     // console.log(e.target.value);
     // to trigger redirect to search results page when enter is pressed
     if (e.key === "Enter") {
@@ -36,17 +36,14 @@ function Navbar() {
   const handleMenu = () => {
     setMenu(!menu);
     setShowCategory(false);
-    console.log("menu state ", menu);
+    // console.log("menu state ", menu);
   };
 
   // to detect any window resize
   useLayoutEffect(() => {
     function updateSize() {
       setWidth(window.innerWidth);
-      console.log("SET WIDTH", window.innerWidth);
-      // if (window.innerWidth < 1025) {
-      // handleMenu();
-      // }
+      // console.log("SET WIDTH", window.innerWidth);
     }
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
@@ -292,7 +289,14 @@ function Navbar() {
                   alt="arrow__icon"
                 />
               </li>
-              {showCategory ? <CategoryMenu /> : <></>}
+              {showCategory ? (
+                <CategoryMenu
+                  showCategory={showCategory}
+                  setShowCategory={setShowCategory}
+                />
+              ) : (
+                <></>
+              )}
               {/* <li className="navbar__item">Deals</li> */}
               {/* <li className="navbar__item">What's New</li>
               <li className="navbar__item">Delivery</li> */}

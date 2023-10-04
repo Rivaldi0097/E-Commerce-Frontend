@@ -1,6 +1,4 @@
 import CartTable from "../components/CartTable";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 function Cart() {
   // interface cart {

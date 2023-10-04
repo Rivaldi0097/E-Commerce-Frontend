@@ -19,6 +19,7 @@ import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResult";
 import Footer from "./components/Footer";
+import CategoryProducts from "./pages/CategoryProducts";
 
 function App() {
   return (
@@ -39,14 +40,20 @@ function App() {
               <Route path="/result/:keyword" element={<SearchResults />}>
                 {/* <Route path=":keyword" element={<SearchResults />} /> */}
               </Route>
-              <Route path='/forgetPassword'>
-                  <Route path='enterEmail' element={<ForgetPassword/>} />
-                  <Route path='resetPassword/:uid/:token' element={<ResetPassword/>} />
+              <Route path="/forgetPassword">
+                <Route path="enterEmail" element={<ForgetPassword />} />
+                <Route
+                  path="resetPassword/:uid/:token"
+                  element={<ResetPassword />}
+                />
+              </Route>
+              <Route path="/category">
+                <Route path=":categoryName" element={<CategoryProducts />} />
               </Route>
               {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
             </Route>
           </Routes>
-          <Footer/>
+          <Footer />
         </Router>
       </Provider>
     </>
