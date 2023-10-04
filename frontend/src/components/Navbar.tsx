@@ -97,7 +97,15 @@ function Navbar() {
                     alt="arrow__icon"
                   />
                 </li>
-                {showCategory ? <ResponsiveCategoryMenu /> : <></>}
+                {showCategory ? (
+                  <ResponsiveCategoryMenu
+                    showCategory={showCategory}
+                    setShowCategory={setShowCategory}
+                    setMenu={setMenu}
+                  />
+                ) : (
+                  <></>
+                )}
                 <li className="navbar__item__responsive search__container">
                   <img
                     src={Search}
