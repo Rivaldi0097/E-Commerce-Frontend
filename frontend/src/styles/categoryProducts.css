@@ -2,23 +2,15 @@
   width: 80%;
   height: 50vh;
   text-transform: capitalize;
-  /* background-image: url("../assets/jewelry.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   margin: auto;
-  /* padding: 40% 0; */
-  /* mix-blend-mode: difference; */
-
-  /* background-color: red; */
 }
 
 .img__text > div {
-  /* background-image: url("../assets/headphone.avif"); */
-  /* background-size: 100% 100%; */
   padding: 22vh 5%;
   font-size: xx-large;
   font-weight: 700;
-  /* filter: invert(50%); */
   color: white;
 }

@@ -36,16 +36,10 @@ function CategoryProducts() {
 
   return (
     <>
-      {/* <div className="img__container"> */}
-      {/* <img src={Electronics}></img> */}
-      {/* <img src={Jewelry}></img>
-        <img src={WomenClothing}></img>
-        <img src={MenClothing}></img> */}
       <div className="img__text" style={{ backgroundImage: `url(${imgSrc})` }}>
         <div>{categoryName}</div>
       </div>
       <br />
-      {/* </div> */}
       <ProductListings data={products} />
     </>
   );

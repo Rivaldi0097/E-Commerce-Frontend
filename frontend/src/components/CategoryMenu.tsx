@@ -11,13 +11,6 @@ function CategoryMenu({ showCategory, setShowCategory }: ICategoryMenu) {
   const { data: categoriesData, isSuccess: categoriesSuccess } =
     useGetProductCategoriesQuery([]);
   const navigate = useNavigate();
-  console.log(categoriesData);
-  // console.log(showCategory);
-  // console.log(setShowCategory);
-
-  // useEffect(() => {
-  //   setShowCategory(false);
-  // }, []);
 
   const handleCategoryClick = (categoryName: string) => {
     setShowCategory(false);
@@ -31,9 +24,6 @@ function CategoryMenu({ showCategory, setShowCategory }: ICategoryMenu) {
           <div
             className="category__items"
             key={categoryName}
-            // onClick={() => {
-            //   handleCategoryClick(categoryName);
-            // }}
             onClick={() => {
               handleCategoryClick(categoryName);
             }}

@@ -11,15 +11,12 @@ function SearchResults() {
   const { data: productsData } = useGetProductsQuery([]);
 
   useEffect(() => {
-    // console.log("keyword ", keyword);
-
     if (keyword !== undefined) {
       setResult(
         productsData?.filter((product) =>
           product.title.toLowerCase().includes(keyword.toLowerCase())
         )
       );
-      // console.log("results ", result);
     } else {
       navigate("/");
     }
