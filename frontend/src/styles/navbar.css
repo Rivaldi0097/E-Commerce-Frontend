@@ -112,6 +112,7 @@
     flex: 100%;
     min-height: 4vh;
     line-height: 250%;
+    cursor: pointer;
   }
   .navbar__items.responsive {
     display: flex;
@@ -161,6 +162,7 @@
     flex: 100%;
     min-height: 4vh;
     line-height: 250%;
+    cursor: pointer;
   }
   .navbar__items.responsive {
     display: flex;
