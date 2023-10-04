@@ -17,12 +17,10 @@ function Navbar() {
   const [keyword, setKeyword] = useState<string>("");
   const [menu, setMenu] = useState<boolean>(false);
   const [width, setWidth] = useState<number>(window.innerWidth);
-  console.log("window size", window.innerWidth);
 
   const handleKeyChange = (e: any) => {
     // to set the state of keyword on every change
     setKeyword(e.target.value);
-    // console.log(e.target.value);
     // to trigger redirect to search results page when enter is pressed
     if (e.key === "Enter") {
       if (keyword !== "") {
@@ -36,17 +34,12 @@ function Navbar() {
   const handleMenu = () => {
     setMenu(!menu);
     setShowCategory(false);
-    console.log("menu state ", menu);
   };
 
   // to detect any window resize
   useLayoutEffect(() => {
     function updateSize() {
       setWidth(window.innerWidth);
-      console.log("SET WIDTH", window.innerWidth);
-      // if (window.innerWidth < 1025) {
-      // handleMenu();
-      // }
     }
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
@@ -61,119 +54,6 @@ function Navbar() {
   return (
     <>
       <div className="navbar">
-        {/* <div className="navbar__inner">
-          <div
-            className="navbar__title navbar__item logo"
-            onClick={handleRedirectHome}
-          >
-          </div>
-          {width < 1025 ? (
-            <>
-              <div className="search__container__responsive">
-                <input
-                  type="text"
-                  className="search__input"
-                  placeholder="Search Product"
-                  value={keyword}
-                  onChange={(e) => {
-                    handleKeyChange(e);
-                  }}
-                  onKeyDown={(e) => {
-                    handleKeyChange(e);
-                  }}
-                ></input>
-              </div>
-              <img
-                src={Menu}
-                className="menu__icon"
-                onClick={handleMenu}
-                alt="menu__logo"
-              ></img>
-            </>
-          ) : (
-            <></>
-          )}
-          <ul className={menu ? "navbar__items responsive" : "navbar__items"}>
-            <li
-              className={menu ? "navbar__item__responsive" : "navbar__item"}
-              onClick={() => {
-                setShowCategory(!showCategory);
-              }}
-            >
-              <span className="arrow__text">Category</span>
-              <img
-                src={Arrow}
-                className={
-                  showCategory ? "rotated__arrow__icon" : "arrow__icon"
-                }
-                alt="arrow__icon"
-              />
-            </li>
-            {showCategory && !menu ? <CategoryMenu /> : <></>}
-            {showCategory && menu ? <ResponsiveCategoryMenu /> : <></>}
-            <li className={menu ? "navbar__item__responsive" : "navbar__item"}>
-              Deals
-            </li>
-            <li className={menu ? "navbar__item__responsive" : "navbar__item"}>
-              What's New
-            </li>
-            <li className={menu ? "navbar__item__responsive" : "navbar__item"}>
-              Delivery
-            </li>
-            <li
-              className={
-                menu
-                  ? "navbar__item__responsive search__container"
-                  : "navbar__item search__container"
-              }
-            >
-              <img
-                src={Search}
-                className="search__icon"
-                alt="search__icon"
-                onClick={() => {
-                  navigate(`/result/${keyword}`);
-                }}
-              />
-
-              <input
-                type="text"
-                className="search__input"
-                placeholder="Search Product"
-                value={keyword}
-                onChange={(e) => {
-                  handleKeyChange(e);
-                }}
-                onKeyDown={(e) => {
-                  handleKeyChange(e);
-                }}
-              ></input>
-            </li>
-            <li
-              className={menu ? "navbar__item__responsive" : "navbar__item"}
-              onClick={() => {
-                if (localStorage.getItem("userId") === null) {
-                  navigate("/login");
-                } else {
-                  navigate("/account");
-                }
-              }}
-            >
-              <img src={User} className="icon" alt="user__icon" />
-              <span className="icon__text">Account</span>
-            </li>
-            <li
-              className={menu ? "navbar__item__responsive" : "navbar__item"}
-              onClick={() => {
-                navigate("/cart");
-              }}
-            >
-              <img src={Cart} className="icon" alt="cart__icon" />
-              <span className="icon__text">Cart</span>
-            </li>
-          </ul>
-        </div> */}
-
         {width < 1025 ? (
           <div className="navbar__inner">
             <div
@@ -218,9 +98,6 @@ function Navbar() {
                   />
                 </li>
                 {showCategory ? <ResponsiveCategoryMenu /> : <></>}
-                {/* <li className="navbar__item__responsive">Deals</li> */}
-                {/* <li className="navbar__item__responsive">What's New</li>
-                <li className="navbar__item__responsive">Delivery</li> */}
                 <li className="navbar__item__responsive search__container">
                   <img
                     src={Search}
@@ -292,10 +169,15 @@ function Navbar() {
                   alt="arrow__icon"
                 />
               </li>
-              {showCategory ? <CategoryMenu /> : <></>}
-              {/* <li className="navbar__item">Deals</li> */}
-              {/* <li className="navbar__item">What's New</li>
-              <li className="navbar__item">Delivery</li> */}
+              {showCategory ? (
+                <CategoryMenu
+                  showCategory={showCategory}
+                  setShowCategory={setShowCategory}
+                />
+              ) : (
+                <></>
+              )}
+
               <li className="navbar__item search__container">
                 <img
                   src={Search}

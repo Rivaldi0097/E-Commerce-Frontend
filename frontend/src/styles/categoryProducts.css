@@ -1,0 +1,16 @@
+.img__text {
+  width: 80%;
+  height: 50vh;
+  text-transform: capitalize;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin: auto;
+}
+
+.img__text > div {
+  padding: 22vh 5%;
+  font-size: xx-large;
+  font-weight: 700;
+  color: white;
+}

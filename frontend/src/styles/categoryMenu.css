@@ -12,9 +12,7 @@
 }
 
 .category__items {
-  /* background-color: #728370; */
   background-color: var(--button-color);
-  /* border: 1px solid #003d29; */
   color: white;
   flex: 35%;
   padding: 15px 20px;
@@ -22,6 +20,7 @@
   text-transform: capitalize;
   font-weight: 500;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .category__items:hover {

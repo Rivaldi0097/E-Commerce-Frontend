@@ -20,7 +20,6 @@
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
-  /* background-color: white; */
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
@@ -71,15 +70,6 @@ tr:nth-last-child(2) > td {
   color: white;
   border-radius: 4px;
 }
-
-/* .decrease__button {
-  background-color: #cde7ca;
-}
-
-.increase__button {
-  background-color: #728370;
-  color: white;
-} */
 
 .delete__icon {
   width: 25px;
