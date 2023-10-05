@@ -17,11 +17,7 @@ interface LoginProps{
 export const loginSlice = createApi({
     reducerPath: 'loginApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: process.env.REACT_APP_HOSTNAME,
-        prepareHeaders(headers){
-            return headers
-        },
-        credentials:'include'
+        baseUrl: process.env.REACT_APP_HOSTNAME
     }),
     tagTypes: ['Login'],
     endpoints: (builder) => ({
@@ -30,6 +26,7 @@ export const loginSlice = createApi({
                 url: '/api/users/login',
                 method:'POST',
                 body: obj,
+                credentials:'include'
             }),
             async onQueryStarted(obj, {queryFulfilled}){
                 queryFulfilled.then((res) => {
