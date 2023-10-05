@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { useGetLoginMutation } from "../redux/loginSlice";
 import "../styles/login.css";
 import Logo from "../assets/logo-no-background.svg";
-import axios from "axios";
 
 function Login() {
 
@@ -24,34 +23,26 @@ function Login() {
         setError(false)
         setDisable(true)
 
-        // if(!isLoading){
+        if(!isLoading){
 
-        //     await toLogin({username: username, password: password})
-        //     .unwrap()
-        //     .then((res) => {
+            await toLogin({username: username, password: password})
+            .unwrap()
+            .then((res) => {
                 
-        //         setDisable(false)
-        //         // navigate('/')
-        //     })
-        //     .catch((err) => {
+                setDisable(false)
+                // navigate('/')
+            })
+            .catch((err) => {
                 
-        //         setErrorMessage(err.data.error)
-        //         setError(true)
-        //         setDisable(false)
-        //     })
+                setErrorMessage(err.data.error)
+                setError(true)
+                setDisable(false)
+            })
 
-        //     // navigate('/')
-        // }
+            // navigate('/')
+        }
 
-        const res = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/login`,{
-            username: username,
-            password: password
-        },{
-            withCredentials: true
-        })
 
-        console.log(res)
-        setDisable(false)
 
     }
 
