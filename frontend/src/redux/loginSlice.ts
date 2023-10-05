@@ -1,4 +1,6 @@
 import { createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
+import Cookies from 'universal-cookie';
+var cookies = new Cookies();
 
 interface Login {
     _id: string,
@@ -31,6 +33,8 @@ export const loginSlice = createApi({
             async onQueryStarted(obj, {queryFulfilled}){
                 queryFulfilled.then((res) => {
                     // localStorage.setItem("userId", res.data._id)
+                    console.log(res)
+                    cookies.set('userId', res.data._id);
                 })
                 .catch((err) => {
                     console.log(err)
