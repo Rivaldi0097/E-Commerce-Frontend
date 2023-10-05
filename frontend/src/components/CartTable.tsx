@@ -3,6 +3,7 @@ import Delete from "../assets/delete.svg";
 import Checkout from "../assets/checkout.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 type cart = {
   product: {
@@ -17,12 +18,16 @@ type cart = {
 function CartTable() {
   const [cartData, setCartData] = useState<cart[]>([]);
   const [cartId, setCartId] = useState<string>("");
+  const navigate = useNavigate();
   var total = 0;
 
   const getCartData = () => {
     axios
-      .get(`http://3.27.117.173:5001/api/cart/64e3697c0c5c619172d73c11`)
+      .get(
+        `${process.env.REACT_APP_HOSTNAME}/api/cart/64e3697c0c5c619172d73c11`
+      )
       .then((res) => {
+        // console.log(res.data);
         setCartData(res.data.products);
         setCartId(res.data._id);
       });
@@ -41,7 +46,7 @@ function CartTable() {
     };
 
     axios
-      .patch(`http://3.27.117.173:5001/api/cart/${cartId}`, payload)
+      .patch(`${process.env.REACT_APP_HOSTNAME}/api/cart/${cartId}`, payload)
       .then((res) => {
         setCartData(res.data.products);
       });
@@ -49,13 +54,56 @@ function CartTable() {
 
   const removeProduct = (productId: string) => {
     axios
-      .delete(`http://3.27.117.173:5001/api/cart/${cartId}`, {
+      .delete(process.env.REACT_APP_HOSTNAME + `/api/cart/${cartId}`, {
         data: {
           product: productId,
         },
       })
       .then((res) => {
         setCartData(res.data.products);
+      });
+  };
+
+  const removeAllProduct = (userId: string) => {
+    axios
+      .delete(
+        process.env.REACT_APP_HOSTNAME + `/api/cart/removeAllProduct/${userId}`
+      )
+      .then((res) => {
+        setCartData(res.data.products);
+        navigate("/order");
+      });
+  };
+
+  const checkout = (cartData: cart[], totalAmt: number, userId: string) => {
+    console.log(cartData);
+    console.log(cartData.length === 0);
+    console.log(totalAmt);
+    console.log(userId);
+
+    var products = [];
+
+    for (var product of cartData) {
+      products.push({
+        product: product.product._id,
+        quantity: product.quantity,
+      });
+    }
+
+    // console.log("products", products);
+
+    const payload = {
+      user: userId,
+      products: products,
+      totalAmount: totalAmt,
+    };
+
+    // console.log("HERE");
+    axios
+      .post(process.env.REACT_APP_HOSTNAME + "/api/orders", payload)
+      .then((res) => {
+        console.log(res);
+        removeAllProduct(userId);
       });
   };
 
@@ -71,55 +119,65 @@ function CartTable() {
             <th>Total Price</th>
             <th>Actions</th>
           </tr>
-          {cartData.map((data) => {
-            var eachProdTotal = data.quantity * data.product.price;
-            total += eachProdTotal;
-            return (
-              <tr className="cart__row" key={data.product._id}>
-                <td>
-                  <div className="product__container">
-                    <div className="product__image__container">
-                      <img
-                        src={data.product.image}
-                        className="product__image"
-                      />
+          {cartData.length > 0 &&
+            cartData.map((data) => {
+              var eachProdTotal = data.quantity * data.product.price;
+              total += eachProdTotal;
+              return (
+                <tr className="cart__row" key={data.product._id}>
+                  <td>
+                    <div className="product__container">
+                      <div className="product__image__container">
+                        <img
+                          src={data.product.image}
+                          className="product__image"
+                        />
+                      </div>
+                      <div className="product__title">{data.product.title}</div>
                     </div>
-                    <div className="product__title">{data.product.title}</div>
-                  </div>
-                </td>
-                <td>$ {data.product.price}</td>
-                <td>
-                  <button
-                    className="decrease__button"
-                    onClick={() => {
-                      updateQty(data.product._id, "decrease");
-                    }}
-                  >
-                    -
-                  </button>
-                  {data.quantity}
-                  <button
-                    className="increase__button"
-                    onClick={() => {
-                      updateQty(data.product._id, "increase");
-                    }}
-                  >
-                    +
-                  </button>
-                </td>
-                <td>$ {eachProdTotal.toFixed(2)}</td>
-                <td>
-                  <img
-                    className="delete__icon"
-                    src={Delete}
-                    onClick={() => {
-                      removeProduct(data.product._id);
-                    }}
-                  ></img>
-                </td>
+                  </td>
+                  <td>$ {data.product.price}</td>
+                  <td>
+                    <button
+                      className="decrease__button"
+                      onClick={() => {
+                        updateQty(data.product._id, "decrease");
+                      }}
+                    >
+                      -
+                    </button>
+                    {data.quantity}
+                    <button
+                      className="increase__button"
+                      onClick={() => {
+                        updateQty(data.product._id, "increase");
+                      }}
+                    >
+                      +
+                    </button>
+                  </td>
+                  <td>$ {eachProdTotal.toFixed(2)}</td>
+                  <td>
+                    <img
+                      className="delete__icon"
+                      src={Delete}
+                      onClick={() => {
+                        removeProduct(data.product._id);
+                      }}
+                    ></img>
+                  </td>
+                </tr>
+              );
+            })}
+          {cartData.length === 0 && (
+            <>
+              <tr className="empty__cart__container">
+                <td colSpan={5}>No product in cart</td>
               </tr>
-            );
-          })}
+
+              {/* <div className="empty__cart__container">No product in cart</div> */}
+            </>
+          )}
           <tr className="total__row">
             <td colSpan={2}></td>
             <td> Total </td>
@@ -128,7 +186,13 @@ function CartTable() {
           <tr>
             <td colSpan={3}></td>
             <td colSpan={2} className="checkout__row">
-              <button className="checkout__button">
+              <button
+                className="checkout__button"
+                onClick={() => {
+                  checkout(cartData, total, "64e3697c0c5c619172d73c11");
+                }}
+                disabled={cartData.length === 0}
+              >
                 <img className="checkout__icon" src={Checkout} />
                 Check out
               </button>
