@@ -30,7 +30,7 @@ function Login() {
             .then((res) => {
                 
                 setDisable(false)
-                navigate('/')
+                // navigate('/')
             })
             .catch((err) => {
                 
