@@ -30,7 +30,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route element={<RetrieveData />}>
-              <Route  element={<SessionCheck/>}>
+              {/* <Route  element={<SessionCheck/>}> */}
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signUp" element={<SignUp />} />
@@ -62,7 +62,7 @@ function App() {
                 <Route path=":categoryName" element={<CategoryProducts />} />
               </Route>
               {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
-            </Route>
+            {/* </Route> */}
           </Routes>
           <Footer />
         </Router>
