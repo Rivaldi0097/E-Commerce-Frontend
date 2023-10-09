@@ -97,6 +97,16 @@ function Navbar() {
                     alt="arrow__icon"
                   />
                 </li>
+
+                <li
+                  className="navbar__item__responsive"
+                  onClick={() => {
+                    navigate("/order");
+                  }}
+                >
+                  <span>Order History</span>
+                </li>
+
                 {showCategory ? (
                   <ResponsiveCategoryMenu
                     showCategory={showCategory}
@@ -185,6 +195,15 @@ function Navbar() {
               ) : (
                 <></>
               )}
+
+              <li
+                className="navbar__item"
+                onClick={() => {
+                  navigate("/order");
+                }}
+              >
+                <span>Order History</span>
+              </li>
 
               <li className="navbar__item search__container">
                 <img

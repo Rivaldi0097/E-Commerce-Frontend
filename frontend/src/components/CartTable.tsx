@@ -27,7 +27,6 @@ function CartTable() {
         `${process.env.REACT_APP_HOSTNAME}/api/cart/64e3697c0c5c619172d73c11`
       )
       .then((res) => {
-        // console.log(res.data);
         setCartData(res.data.products);
         setCartId(res.data._id);
       });
@@ -90,15 +89,12 @@ function CartTable() {
       });
     }
 
-    // console.log("products", products);
-
     const payload = {
       user: userId,
       products: products,
       totalAmount: totalAmt,
     };
 
-    // console.log("HERE");
     axios
       .post(process.env.REACT_APP_HOSTNAME + "/api/orders", payload)
       .then((res) => {
@@ -116,7 +112,7 @@ function CartTable() {
             <th>Product</th>
             <th>Unit Price</th>
             <th>Quantity</th>
-            <th>Total Price</th>
+            <th>Sub Total</th>
             <th>Actions</th>
           </tr>
           {cartData.length > 0 &&
@@ -131,6 +127,7 @@ function CartTable() {
                         <img
                           src={data.product.image}
                           className="product__image"
+                          alt="product"
                         />
                       </div>
                       <div className="product__title">{data.product.title}</div>
@@ -161,6 +158,7 @@ function CartTable() {
                     <img
                       className="delete__icon"
                       src={Delete}
+                      alt="delete-icon"
                       onClick={() => {
                         removeProduct(data.product._id);
                       }}
@@ -174,8 +172,6 @@ function CartTable() {
               <tr className="empty__cart__container">
                 <td colSpan={5}>No product in cart</td>
               </tr>
-
-              {/* <div className="empty__cart__container">No product in cart</div> */}
             </>
           )}
           <tr className="total__row">
@@ -193,7 +189,11 @@ function CartTable() {
                 }}
                 disabled={cartData.length === 0}
               >
-                <img className="checkout__icon" src={Checkout} />
+                <img
+                  className="checkout__icon"
+                  src={Checkout}
+                  alt="checkout-icon"
+                />
                 Check out
               </button>
             </td>
