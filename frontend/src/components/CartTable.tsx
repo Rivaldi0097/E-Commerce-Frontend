@@ -53,7 +53,7 @@ function CartTable() {
 
   const removeProduct = (productId: string) => {
     axios
-      .delete(process.env.REACT_APP_HOSTNAME + `/api/cart/${cartId}`, {
+      .delete(`${process.env.REACT_APP_HOSTNAME}/api/cart/${cartId}`, {
         data: {
           product: productId,
         },
@@ -66,7 +66,7 @@ function CartTable() {
   const removeAllProduct = (userId: string) => {
     axios
       .delete(
-        process.env.REACT_APP_HOSTNAME + `/api/cart/removeAllProduct/${userId}`
+        `${process.env.REACT_APP_HOSTNAME}/api/cart/removeAllProduct/${userId}`
       )
       .then((res) => {
         setCartData(res.data.products);
