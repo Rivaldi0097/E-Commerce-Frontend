@@ -31,39 +31,28 @@ function App() {
           <Navbar />
           <Routes>
             <Route element={<RetrieveData />}>
-              <Route element={<SessionCheck />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signUp" element={<SignUp />} />
-                <Route path="/account" element={<Account />} />
-                <Route path="/order" element={<OrderHistory />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/product">
-                  <Route path=":productName" element={<Product />} />
-                </Route>
-                <Route path="/result/:keyword" element={<SearchResults />}>
-                  {/* <Route path=":keyword" element={<SearchResults />} /> */}
-                </Route>
-                <Route path="/forgetPassword">
-                  <Route path="enterEmail" element={<ForgetPassword />} />
-                  <Route
-                    path="resetPassword/:uid/:token"
-                    element={<ResetPassword />}
-                  />
-                </Route>
-                {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signUp" element={<SignUp />} />
+              <Route path='/forgetPassword'>
+                <Route path='enterEmail' element={<ForgetPassword/>} />
+                <Route path='resetPassword/:uid/:token' element={<ResetPassword/>} />
+              </Route>
+              <Route path="/product">
+                <Route path=":productName" element={<Product />} />
               </Route>
               <Route path="/result/:keyword" element={<SearchResults />}>
                 {/* <Route path=":keyword" element={<SearchResults />} /> */}
               </Route>
-              <Route path="/forgetPassword">
-                <Route path="enterEmail" element={<ForgetPassword />} />
-                <Route
-                  path="resetPassword/:uid/:token"
-                  element={<ResetPassword />}
-                />
+              <Route path="/category">
+                <Route path=":categoryName" element={<CategoryProducts />} />
               </Route>
               {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
+              <Route  element={<SessionCheck/>}>
+                <Route path="/account" element={<Account />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/order" element={<OrderHistory />} />
+              </Route>
             </Route>
           </Routes>
           <Footer />

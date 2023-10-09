@@ -142,11 +142,7 @@ function Navbar() {
                 <li
                   className="navbar__item__responsive"
                   onClick={() => {
-                    if (localStorage.getItem("userId") === null) {
-                      navigate("/login");
-                    } else {
-                      navigate("/account");
-                    }
+                    navigate("/account");
                   }}
                 >
                   <img src={User} className="icon" alt="user__icon" />
@@ -231,11 +227,7 @@ function Navbar() {
               <li
                 className="navbar__item"
                 onClick={() => {
-                  if (localStorage.getItem("userId") === null) {
-                    navigate("/login");
-                  } else {
-                    navigate("/account");
-                  }
+                  navigate("/account");
                 }}
               >
                 <img src={User} className="icon" alt="user__icon" />

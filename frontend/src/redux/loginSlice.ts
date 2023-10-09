@@ -8,7 +8,8 @@ interface Login {
     lastname: string,
     username: string,
     password: string,
-    email: string
+    email: string,
+    sessionId: string
 }
 
 interface LoginProps{
@@ -33,8 +34,12 @@ export const loginSlice = createApi({
             async onQueryStarted(obj, {queryFulfilled}){
                 queryFulfilled.then((res) => {
                     // localStorage.setItem("userId", res.data._id)
-                    console.log(res)
-                    cookies.set('userId', res.data._id);
+                    // console.log(res)
+                    cookies.set('sessionId', res.data.sessionId, {
+                        secure: true,
+                        maxAge:  60 * 60 * 1000
+
+                    });
                 })
                 .catch((err) => {
                     console.log(err)

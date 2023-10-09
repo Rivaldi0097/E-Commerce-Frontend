@@ -1,38 +1,35 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 function SessionCheck() {
 
-    const [check, setCheck] = useState<boolean | null>(null);
+    var cookies = new Cookies();
 
-    useEffect(() => {
-        const session = async () => {
-            try {
-
-                console.log('hey')
-
-                const res = await axios.get(`${process.env.REACT_APP_HOSTNAME}/api/users/`,{
-                    withCredentials: true
-                })
+    if(!cookies.get('sessionId')){
+        return <Navigate to="/login" replace />; 
         
-                console.log(res)
-                // localStorage.setItem('userId', res.data._id);
-        
-                setCheck(true)
-                
-            } catch (error) {
-                console.log(error)
+    }else{
+        try {
 
-                setCheck(false)
-            }
+
+            const res = axios.get(`${process.env.REACT_APP_HOSTNAME}/api/users/`, {
+                withCredentials: true,
+                headers:{
+                    'Authorization': cookies.get('sessionId')
+                }
+            })
+    
+    
+            return <Outlet/>
+            
+        } catch (error) {
+            console.log(error)
+
+            return <Navigate to="/login" replace />; 
         }
-
-        session()
-    }, [])
-
-
-    return <Outlet/>; 
+    }
 
     
 }
