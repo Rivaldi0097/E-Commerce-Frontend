@@ -21,6 +21,7 @@ import SearchResults from "./pages/SearchResult";
 import Footer from "./components/Footer";
 import CategoryProducts from "./pages/CategoryProducts";
 import SessionCheck from "./components/SessionCheck";
+import OrderHistory from "./pages/OrderHistory";
 
 function App() {
   return (
@@ -57,9 +58,6 @@ function App() {
                   path="resetPassword/:uid/:token"
                   element={<ResetPassword />}
                 />
-              </Route>
-              <Route path="/category">
-                <Route path=":categoryName" element={<CategoryProducts />} />
               </Route>
               {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
             </Route>

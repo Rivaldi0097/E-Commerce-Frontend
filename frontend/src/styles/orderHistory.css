@@ -1,0 +1,52 @@
+.order__container {
+  width: 80%;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.order__container > h2 {
+  text-align: center;
+}
+
+.order__table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.order__card {
+  background-color: #f5f6f6;
+}
+
+.order__detail > td {
+  padding: 10px;
+}
+
+.empty__order__row {
+  background-color: #f5f6f6;
+}
+
+.order__col {
+  border: 0px solid transparent;
+}
+
+.view__details__button {
+  border: 0px;
+  padding: 10px;
+  background-color: var(--button-color);
+  color: white;
+  border-radius: 10px;
+}
+
+.view__details__button:hover {
+  background-color: var(--button-color-hover);
+}
+
+.detail__table {
+  background-color: #f5f6f6;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.detail__table > tr > th {
+  border-bottom: 1px solid rgb(183, 183, 183);
+}
