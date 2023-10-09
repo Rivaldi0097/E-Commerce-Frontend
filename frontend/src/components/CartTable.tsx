@@ -21,7 +21,9 @@ function CartTable() {
 
   const getCartData = () => {
     axios
-      .get(`http://3.27.117.173:5001/api/cart/64e3697c0c5c619172d73c11`)
+      .get(
+        `${process.env.REACT_APP_HOSTNAME}/api/cart/64e3697c0c5c619172d73c11`
+      )
       .then((res) => {
         setCartData(res.data.products);
         setCartId(res.data._id);
@@ -41,7 +43,7 @@ function CartTable() {
     };
 
     axios
-      .patch(`http://3.27.117.173:5001/api/cart/${cartId}`, payload)
+      .patch(`${process.env.REACT_APP_HOSTNAME}/api/cart/${cartId}`, payload)
       .then((res) => {
         setCartData(res.data.products);
       });
@@ -49,7 +51,7 @@ function CartTable() {
 
   const removeProduct = (productId: string) => {
     axios
-      .delete(`http://3.27.117.173:5001/api/cart/${cartId}`, {
+      .delete(`${process.env.REACT_APP_HOSTNAME}/api/cart/${cartId}`, {
         data: {
           product: productId,
         },
