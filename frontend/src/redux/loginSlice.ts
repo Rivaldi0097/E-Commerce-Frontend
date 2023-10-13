@@ -36,6 +36,7 @@ export const loginSlice = createApi({
                     // localStorage.setItem("userId", res.data._id)
                     // console.log(res)
                     cookies.set('sessionId', res.data.sessionId, {
+                        path:'/',
                         secure: true,
                         maxAge:  60 * 60 * 1000
 
