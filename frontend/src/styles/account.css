@@ -1,0 +1,106 @@
+.AccountContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.ErrorAccountOuterBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f6f6;
+    min-height: 60vh;
+    width: 80%;
+    padding: 30px 0px 50px 0px;
+}
+
+.AccountOuterBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f6f6;
+    min-height: 60vh;
+    width: 80%;
+    padding: 30px 0px 50px 0px;
+}
+
+.FontSize{
+    font-size: 4vw;
+}
+
+.AccountTextField{
+    border: 0px;
+    margin: 10px 0px 15px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.AccountTextField:disabled{
+    background-color: #bebebe;
+}
+
+.UsernameFieldContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+    width: 60%;
+}
+
+.UsernameFieldChild{
+    display: flex;
+    flex-direction: column;
+}
+
+.AccountFieldContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 20px;
+    width: 60%;
+}
+
+.AccountFieldChild{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.EditAccountButton{
+    border: 0px;
+    padding: 10px;
+    background-color: #38503d;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    width: 20%;
+    margin-top: 30px;
+}
+
+.AccountErrorMessage{
+    color: red;
+    margin-top: 15px;
+}
+
+.AccountSuccessMessage{
+    color: green;
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 767px){
+    .AccountFieldContainer{
+        flex-direction: column;
+        margin-top: 0px;
+        gap:0px;
+    }
+
+    .AccountFieldChild{
+        margin-top: 10px;
+    }
+}
