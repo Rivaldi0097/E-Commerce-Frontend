@@ -38,8 +38,8 @@ export const loginSlice = createApi({
                     cookies.set('sessionId', res.data.sessionId, {
                         path:'/',
                         secure: true,
-                        maxAge:  60 * 60 * 1000
-
+                        maxAge:  60 * 60 * 1000,
+                        sameSite: 'none'
                     });
                 })
                 .catch((err) => {
