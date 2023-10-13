@@ -37,9 +37,9 @@ export const loginSlice = createApi({
                     // console.log(res)
                     cookies.set('sessionId', res.data.sessionId, {
                         path:'/',
-                        secure: false,
+                        secure: true,
                         maxAge:  60 * 60 * 1000,
-                        sameSite: 'none'
+                        sameSite: 'lax'
                     });
                 })
                 .catch((err) => {
