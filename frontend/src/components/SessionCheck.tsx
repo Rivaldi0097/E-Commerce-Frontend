@@ -16,6 +16,8 @@ function SessionCheck() {
 
             try {
 
+                console.log('cookies:', cookies.get('sessionId'))
+
                 const res = await axios.get(`${process.env.REACT_APP_HOSTNAME}/api/users/`, {
                     withCredentials: true,
                     headers:{
