@@ -29,7 +29,8 @@ export const loginSlice = createApi({
                 url: '/api/users/login',
                 method:'POST',
                 body: obj,
-                credentials:'include'
+                credentials:'include',
+                cookie: cookies.get('userId')
             }),
             async onQueryStarted(obj, {queryFulfilled}){
                 queryFulfilled.then((res) => {
@@ -39,7 +40,7 @@ export const loginSlice = createApi({
                         path:'/',
                         secure: true,
                         maxAge:  60 * 60 * 1000,
-                        sameSite: 'lax'
+                        sameSite: 'none'
                     });
                 })
                 .catch((err) => {
