@@ -18,11 +18,8 @@ function SessionCheck() {
 
                 console.log('cookies:', cookies.get('sessionId'))
 
-                const res = await axios.get(`${process.env.REACT_APP_HOSTNAME}/api/users/`, {
-                    withCredentials: true,
-                    headers:{
-                        'Authorization': cookies.get('sessionId')
-                    }
+                const res = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/authentication`, {
+                    sessionId: cookies.get('sessionId')
                 })
                 
                 console.log("session check success: ", JSON.parse(res.data.session))

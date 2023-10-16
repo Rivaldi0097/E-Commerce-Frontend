@@ -29,8 +29,7 @@ export const loginSlice = createApi({
                 url: '/api/users/login',
                 method:'POST',
                 body: obj,
-                credentials:'include',
-                cookie: cookies.get('userId')
+                credentials:'include'
             }),
             async onQueryStarted(obj, {queryFulfilled}){
                 queryFulfilled.then((res) => {
