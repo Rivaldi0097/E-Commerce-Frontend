@@ -16,13 +16,9 @@ function SessionCheck() {
 
             try {
 
-                console.log('cookies:', cookies.get('sessionId'))
-
                 const res = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/authentication`, {
                     sessionId: cookies.get('sessionId')
                 })
-                
-                console.log("session check success: ", JSON.parse(res.data.session))
 
                 //set cookies for the userId
                 const convertedResult = JSON.parse(res.data.session)

@@ -33,8 +33,6 @@ export const loginSlice = createApi({
             }),
             async onQueryStarted(obj, {queryFulfilled}){
                 queryFulfilled.then((res) => {
-                    // localStorage.setItem("userId", res.data._id)
-                    // console.log(res)
                     cookies.set('sessionId', res.data.sessionId, {
                         path:'/',
                         secure: true,
