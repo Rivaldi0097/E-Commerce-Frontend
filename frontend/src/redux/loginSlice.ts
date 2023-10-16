@@ -33,12 +33,25 @@ export const loginSlice = createApi({
             }),
             async onQueryStarted(obj, {queryFulfilled}){
                 queryFulfilled.then((res) => {
+                    console.log(res.data)
                     cookies.set('sessionId', res.data.sessionId, {
                         path:'/',
                         secure: true,
                         maxAge:  60 * 60 * 1000,
                         sameSite: 'none'
                     });
+                    cookies.set('username', res.data.username, {
+                        path:'/',
+                        secure: true,
+                        maxAge:  60 * 60 * 1000,
+                        sameSite: 'none'
+                    })
+                    cookies.set('userId', res.data._id, {
+                        path:'/',
+                        secure: true,
+                        maxAge:  60 * 60 * 1000,
+                        sameSite: 'none'
+                    })
                 })
                 .catch((err) => {
                     console.log(err)

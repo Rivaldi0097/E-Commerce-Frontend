@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useLayoutEffect, useState } from "react";
 import ResponsiveCategoryMenu from "./ResponsiveCategoryMenu";
 import { walkUpBindingElementsAndPatterns } from "typescript";
+import Cookies from "universal-cookie";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function Navbar() {
   const [keyword, setKeyword] = useState<string>("");
   const [menu, setMenu] = useState<boolean>(false);
   const [width, setWidth] = useState<number>(window.innerWidth);
+  var cookies = new Cookies;
 
   const handleKeyChange = (e: any) => {
     // to set the state of keyword on every change
@@ -146,7 +148,7 @@ function Navbar() {
                   }}
                 >
                   <img src={User} className="icon" alt="user__icon" />
-                  <span className="icon__text">Account</span>
+                  <span className="icon__text"> Account </span>
                 </li>
                 <li
                   className="navbar__item__responsive"
@@ -231,7 +233,7 @@ function Navbar() {
                 }}
               >
                 <img src={User} className="icon" alt="user__icon" />
-                <span className="icon__text">Account</span>
+                <span className="icon__text">{!cookies.get('username')? 'Account': cookies.get('username')} </span>
               </li>
               <li
                 className="navbar__item"

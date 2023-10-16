@@ -21,8 +21,8 @@ function SessionCheck() {
                 })
 
                 //set cookies for the userId
-                const convertedResult = JSON.parse(res.data.session)
-                cookies.set('userId', convertedResult.userId)
+                // const convertedResult = JSON.parse(res.data.session)
+                // cookies.set('userId', convertedResult.userId)
                 
                 setOutput(true)
                 setLoading(false)
@@ -32,6 +32,7 @@ function SessionCheck() {
                 //since session is not valid anymore, we can remove the sessionId and userId from cookies
                 cookies.remove('sessionId')
                 cookies.remove('userId')
+                cookies.remove('username')
                 setOutput(false)
                 setLoading(false)
             }
