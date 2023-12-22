@@ -1,228 +1,235 @@
-:root{
-    --backgroundColor: #eff0f5;
-    --whiteBackground: white;
-    background-color: var(--backgroundColor);
+:root {
+  --backgroundColor: #eff0f5;
+  --whiteBackground: white;
+  background-color: var(--backgroundColor);
 }
 
-.PageContainer{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.05fr 0.75fr 0.25fr 1fr;
-    grid-template-areas: 
-        "ProductPath ProductPath"
-        "ProductImage ProductDetails"
-        "ProductDescription ProductDescription"
-        "ProductReviews ProductReviews"
-    ;
-    font-family: "Inter", sans-serif;
-    margin: 0px 20px 0px 20px;
+.PageContainer {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.05fr 0.75fr 0.25fr 1fr;
+  grid-template-areas:
+    "ProductPath ProductPath"
+    "ProductImage ProductDetails"
+    "ProductDescription ProductDescription"
+    "ProductReviews ProductReviews";
+  font-family: "Inter", sans-serif;
+  margin: 0px 20px 0px 20px;
 }
 
-.ProductPath{
-    background-color: var(--whiteBackground);
-    grid-area: ProductPath;
-    padding: 20px 0px 10px 40px;
-    text-transform: uppercase;
-    max-height: 30px;
-    margin: 0px -20px 0px -20px;
+.ProductPath {
+  background-color: var(--whiteBackground);
+  grid-area: ProductPath;
+  padding: 20px 0px 10px 40px;
+  text-transform: uppercase;
+  max-height: 30px;
+  margin: 0px -20px 0px -20px;
 }
 
-.Flexbox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    margin: 20px 0px 30px 0px;
-    padding: 20px 0px 0px 0px;
+.Flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 20px 0px 30px 0px;
+  padding: 20px 0px 0px 0px;
 }
 
-.ProductImage{
-    grid-area: ProductImage;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    background-color: var(--whiteBackground);
-    width: 45vw;
-    height: 45vw;
-    margin: 0px 30px 0px 40px;
-    max-width: 400px;
-    max-height: 400px;
+.ProductImage {
+  grid-area: ProductImage;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: var(--whiteBackground);
+  width: 45vw;
+  height: 45vw;
+  margin: 0px 30px 0px 40px;
+  max-width: 400px;
+  max-height: 400px;
 }
 
-.ImageSize{
-    width: 30vw;
-    height: 30vw;
-    max-width: 450px;
-    max-height: 450px;
+.ImageSize {
+  width: 30vw;
+  height: 30vw;
+  max-width: 450px;
+  max-height: 450px;
 }
 
-.ProductDetails{
-    grid-area: ProductDetails;
-    background-color: var(--whiteBackground);
-    margin: 20px 0px 30px 0px;
-    padding: 20px 0px 0px 0px;
+.ProductDetails {
+  grid-area: ProductDetails;
+  background-color: var(--whiteBackground);
+  margin: 20px 0px 30px 0px;
+  padding: 20px 0px 0px 0px;
 }
 
-.ProductPath{
-    color: darkgray;
+.ProductPath {
+  color: darkgray;
 }
 
-.CurrentProduct{
-    color:black;
-    font-weight: 600;
-    text-transform: uppercase;
+.CurrentProduct {
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-.SolidDivider{
-    border-top: 3px solid #b2d4b6;
-    margin: 30px 0px 30px 0px;
-    width: 95%;
+.SolidDivider {
+  border-top: 3px solid #b2d4b6;
+  margin: 30px 0px;
+  width: 95%;
 }
 
-.ButtonFlexBox{
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
+.ButtonFlexBox {
+  display: flex;
+  flex-direction: row;
+  /* margin-top: 30px; */
+  margin: 40px 40px 0px 0px;
 }
 
-.ButtonFlexBox button:nth-of-type(1) {flex-grow: 1;}
-.ButtonFlexBox button:nth-of-type(2) {flex-grow: 1;}
-
-.QuantityBox{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 30px;
+.ButtonFlexBox button:nth-of-type(1) {
+  flex-grow: 1;
+}
+.ButtonFlexBox button:nth-of-type(2) {
+  flex-grow: 1;
 }
 
-.QuantityBox div{
-    margin: 5px;
+.QuantityBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* margin-top: 30px; */
+  margin: 40px 40px 0px 0px;
 }
 
-.QuantityBox button{
-    padding: 10px;
-    width: 100px;
-    border: 0px;
-    border-radius: 100px;
-    background-color: #4b514a;
-    color: white;
+.QuantityBox div {
+  margin: 5px;
 }
 
-.QuantityBox input{
-    padding: 10px;
-    width: 100px;
+.QuantityBox button {
+  padding: 10px;
+  width: 100px;
+  border: 0px;
+  border-radius: 100px;
+  background-color: var(--button-color);
+  color: white;
 }
 
-.QuantityValue{
-    text-align: center;
-    border: 0px;
+.QuantityBox button:hover {
+  background-color: var(--button-color-hover);
 }
 
-.DeliveryBox{
-    display: flex;
-    flex-direction: column;
-    margin: 40px 40px 0px 0px;
-    border: 3px solid #b2d4b6;
-    padding: 10px 30px 10px 30px;
+.QuantityBox input {
+  padding: 10px;
+  width: 100px;
 }
 
-.IconFlex{
-    display: flex;
-    align-items: center;
+.QuantityValue {
+  text-align: center;
+  border: 0px;
 }
 
-.Icon{
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    
+.DeliveryBox {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 40px 0px 0px;
+  border: 3px solid #b2d4b6;
+  padding: 10px 30px 10px 30px;
 }
 
-.DeliveryDivider{
-    border-top: 3px solid #b2d4b6;
-    width: 100%;
+.IconFlex {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
 }
 
-.ProductDescription{
-    grid-area: ProductDescription;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--whiteBackground);
-    padding: 0px 20px 0px 20px;
+.Icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
 }
 
-.ProductReviews{
-    grid-area: ProductReviews;
-    background-color: var(--whiteBackground);
-    padding: 20px 20px 20px 20px;
-    margin: 30px 0px 40px 0px;
+.DeliveryDivider {
+  border-top: 3px solid #b2d4b6;
+  width: 100%;
 }
 
-.BuyButton{
-    padding: 15px;
-    background-color: #4b514a;
-    color: white;
-    border: 2px solid #c5c5c5;
-    text-align: center;
-    min-width: 80px;
-    border-radius: 100px;
-    margin-right: 15px;
+.ProductDescription {
+  grid-area: ProductDescription;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--whiteBackground);
+  padding: 0px 40px 0px 40px;
 }
 
+.ProductReviews {
+  grid-area: ProductReviews;
+  background-color: var(--whiteBackground);
+  padding: 30px 40px;
+  margin: 30px 0px 40px 0px;
+}
 
+.BuyButton {
+  padding: 15px;
+  background-color: var(--button-color);
+  color: white;
+  border: 0px;
+  text-align: center;
+  min-width: 80px;
+  border-radius: 100px;
+  margin: 0px 20px;
+}
+
+.BuyButton:hover {
+  background-color: var(--button-color-hover);
+}
 
 @media only screen and (max-width: 940px) {
-    .PageContainer{
-        grid-template-columns: 95vw;
-        grid-template-rows: 0.08fr 110vw 0.85fr 0.25fr 1fr;
-        grid-template-areas:
-            "ProductPath"
-            "ProductImage"
-            "ProductDetails"
-            "ProductDescription"
-            "ProductReviews"
-        ;
-    }
+  .PageContainer {
+    grid-template-columns: 95vw;
+    grid-template-rows: 0.08fr 110vw 0.85fr 0.25fr 1fr;
+    grid-template-areas:
+      "ProductPath"
+      "ProductImage"
+      "ProductDetails"
+      "ProductDescription"
+      "ProductReviews";
+  }
 
-    .ProductPath{
-        margin: 10px 10px 20px 20px;
-    }
+  .ProductPath {
+    margin: 10px 10px 20px 20px;
+  }
 
-    .Flexbox{
-        margin: 10px 10px 20px 20px;
-    }
+  .Flexbox {
+    margin: 10px 10px 20px 20px;
+  }
 
-    .ProductImage{
-        margin-top: 90px;
-        width: 80vw;
-        height: 80vw;
-    }
+  .ProductImage {
+    margin-top: 90px;
+    width: 80vw;
+    height: 80vw;
+  }
 
-    .ImageSize{
-        width: 50vw;
-        height: 50vw;
-    }
+  .ImageSize {
+    width: 50vw;
+    height: 50vw;
+  }
 
-    .ProductDetails{
-        margin: 10px 10px 20px 20px;
-        padding: 0px 40px 0px 40px;
-        
-    }
-    
-    .ProductDetails > h1 {
-        font-size: 7vw;
-    }
+  .ProductDetails {
+    margin: 10px 10px 20px 20px;
+    padding: 0px 40px 0px 40px;
+  }
 
-    .ProductDescription{
-        margin: 10px 10px 20px 20px;
-    }
+  .ProductDetails > h1 {
+    font-size: 7vw;
+  }
 
-    .ProductReviews{
-        margin: 10px 10px 20px 20px;
-    }
+  .ProductDescription {
+    margin: 10px 10px 20px 20px;
+  }
 
+  .ProductReviews {
+    margin: 10px 10px 20px 20px;
+  }
 }
