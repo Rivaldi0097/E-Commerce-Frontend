@@ -4,6 +4,7 @@ import Checkout from "../assets/checkout.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 type cart = {
   product: {
@@ -20,12 +21,12 @@ function CartTable() {
   const [cartId, setCartId] = useState<string>("");
   const navigate = useNavigate();
   var total = 0;
+  var cookies = new Cookies();
+  const userId = cookies.get("userId");
 
   const getCartData = () => {
     axios
-      .get(
-        `${process.env.REACT_APP_HOSTNAME}/api/cart/64e3697c0c5c619172d73c11`
-      )
+      .get(`${process.env.REACT_APP_HOSTNAME}/api/cart/${userId}`)
       .then((res) => {
         setCartData(res.data.products);
         setCartId(res.data._id);
