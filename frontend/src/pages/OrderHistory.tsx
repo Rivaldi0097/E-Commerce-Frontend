@@ -3,9 +3,11 @@ import OrderCard from "../components/OrderCard";
 import { useEffect, useState } from "react";
 import { orderModel } from "../models/orderModel";
 import "../styles/orderHistory.css";
+import Cookies from "universal-cookie";
 
 function OrderHistory() {
-  const userId = "64e3697c0c5c619172d73c11";
+  var cookies = new Cookies();
+  const userId = cookies.get("userId");
   const [ordersData, setOrdersData] = useState<orderModel[]>([]);
 
   useEffect(() => {

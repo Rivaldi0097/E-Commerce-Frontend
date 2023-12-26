@@ -4,33 +4,15 @@ import { ProductModel } from "../models/productModel";
 import "../styles/productListings.css";
 import ProductStarReview from "./ProductStarReview";
 import { useNavigate } from "react-router-dom";
-import Cookies from "universal-cookie";
-import axios from "axios";
 
 interface HomeProductsProps {
   data: ProductModel[] | undefined;
+  addToCart: (productId: string) => Promise<void>;
 }
 
-function ProductListings({ data }: HomeProductsProps) {
+function ProductListings({ data, addToCart }: HomeProductsProps) {
   const [products, setProducts] = useState<any>([]);
   const navigate = useNavigate();
-  var cookies = new Cookies();
-
-  const addToCart = async (productId: String) => {
-    if (cookies.get("userId") === null) {
-      navigate("/login");
-    } else {
-      const cartId = cookies.get("cartId");
-      const res = await axios.patch(
-        `${process.env.REACT_APP_HOSTNAME}/api/cart/${cartId}`,
-        {
-          product: productId,
-          quantity: 1,
-          increase: true,
-        }
-      );
-    }
-  };
 
   useEffect(() => {
     setProducts(
