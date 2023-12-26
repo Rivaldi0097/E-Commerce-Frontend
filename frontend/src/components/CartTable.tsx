@@ -186,7 +186,7 @@ function CartTable() {
               <button
                 className="checkout__button"
                 onClick={() => {
-                  checkout(cartData, total, "64e3697c0c5c619172d73c11");
+                  checkout(cartData, total, userId);
                 }}
                 disabled={cartData.length === 0}
               >

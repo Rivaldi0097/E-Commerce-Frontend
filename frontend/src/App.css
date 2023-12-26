@@ -50,4 +50,5 @@
   --button-color: #38503d;
   --button-color-hover: #08200d;
   --text-color: #4b514a;
+  overflow: scroll;
 }

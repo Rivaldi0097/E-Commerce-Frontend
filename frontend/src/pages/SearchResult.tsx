@@ -3,12 +3,18 @@ import { ProductModel } from "../models/productModel";
 import ProductListings from "../components/ProductListings";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import StatusModal from "../components/StatusModal";
+import axios from "axios";
+import Cookies from "universal-cookie";
 
 function SearchResults() {
   const { keyword } = useParams<{ keyword: string }>();
   const [result, setResult] = useState<ProductModel[] | undefined>([]);
   const navigate = useNavigate();
   const { data: productsData } = useGetProductsQuery([]);
+  const [showModal, setShowModal] = useState<Boolean>(false);
+  const [status, setStatus] = useState<string>("");
+  var cookies = new Cookies();
 
   useEffect(() => {
     if (keyword !== undefined) {
@@ -20,7 +26,43 @@ function SearchResults() {
     } else {
       navigate("/");
     }
-  }, [keyword]);
+    document.documentElement.style.overflow = showModal ? "hidden" : "auto";
+  }, [keyword, showModal]);
+
+  const closeModal = () => {
+    console.log("close modal");
+    setShowModal((showModal) => !showModal);
+    console.log(showModal);
+  };
+
+  const addToCart = async (productId: String) => {
+    if (cookies.get("userId") === null) {
+      navigate("/login");
+    } else {
+      const cartId = cookies.get("cartId");
+      const res = await axios.patch(
+        `${process.env.REACT_APP_HOSTNAME}/api/cart/${cartId}`,
+        {
+          product: productId,
+          quantity: 1,
+          increase: true,
+        }
+      );
+
+      console.log(res.status);
+
+      if (res.status === 200) {
+        console.log(showModal);
+        setShowModal((showModal) => !showModal);
+        console.log(showModal);
+
+        setStatus("Added to cart successfully!");
+      } else {
+        setShowModal((showModal) => !showModal);
+        setStatus("Failed to add product to cart!");
+      }
+    }
+  };
 
   const content =
     result && result.length > 0 ? (
@@ -35,7 +77,10 @@ function SearchResults() {
         >
           Search results for "{keyword}"
         </h2>
-        <ProductListings data={result} />
+
+        {showModal && <StatusModal status={status} setClose={closeModal} />}
+
+        <ProductListings data={result} addToCart={addToCart} />
       </>
     ) : (
       <>

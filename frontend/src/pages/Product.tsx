@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ProductReviews from "../components/ProductReviews";
 import "../styles/productDetails.css";
@@ -9,32 +9,80 @@ import Truck from "../assets/truck.svg";
 import Box from "../assets/box.svg";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import StatusModal from "../components/StatusModal";
+import { isElementAccessExpression } from "typescript";
 
 function Product() {
   const location = useLocation();
   const navigate = useNavigate();
   const product = location.state;
   const [quantity, setQuantity] = useState<number>(1);
+  const [showModal, setShowModal] = useState<Boolean>(false);
+  const [status, setStatus] = useState<string>("");
   var cookies = new Cookies();
 
-  const addToCart = async () => {
-    // console.log(product._id);
-    // console.log(quantity);
-    const cartId = cookies.get("cartId");
-    const res = await axios.patch(
-      `${process.env.REACT_APP_HOSTNAME}/api/cart/${cartId}`,
-      {
-        product: product._id,
-        quantity: quantity,
-        increase: true,
-      }
-    );
+  useEffect(() => {
+    document.documentElement.style.overflow = showModal ? "hidden" : "auto";
+  }, [showModal]);
 
-    console.log(res);
+  const closeModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const addToCart = async () => {
+    const cartId = cookies.get("cartId");
+    if (cartId === null) {
+      navigate("/login");
+    } else {
+      const res = await axios.patch(
+        `${process.env.REACT_APP_HOSTNAME}/api/cart/${cartId}`,
+        {
+          product: product._id,
+          quantity: quantity,
+          increase: true,
+        }
+      );
+
+      if (res.status === 200) {
+        setShowModal(true);
+        setStatus("Added to cart successfully!");
+      } else {
+        setShowModal(true);
+        setStatus("Failed to add product to cart!");
+      }
+    }
+  };
+
+  const checkOut = () => {
+    console.log("CHECKOUT");
+    const userId = cookies.get("userId");
+    if (userId === null) {
+      navigate("/login");
+    } else {
+      const payload = {
+        user: userId,
+        products: [
+          {
+            product: product._id,
+            quantity: quantity,
+          },
+        ],
+        totalAmount: product.price * quantity,
+      };
+
+      axios
+        .post(process.env.REACT_APP_HOSTNAME + "/api/orders", payload)
+        .then((res) => {
+          if (res.status === 201) {
+            navigate("/order");
+          }
+        });
+    }
   };
 
   return (
     <div className="PageContainer">
+      {showModal && <StatusModal status={status} setClose={closeModal} />}
       <p className="ProductPath">
         Products / <span className="CurrentProduct">{product.category}</span>
       </p>
@@ -98,7 +146,9 @@ function Product() {
         </div>
 
         <div className="ButtonFlexBox">
-          <button className="BuyButton">Buy Now</button>
+          <button className="BuyButton" onClick={checkOut}>
+            Buy Now
+          </button>
           <button className="BuyButton" onClick={addToCart}>
             Add to Cart
           </button>
