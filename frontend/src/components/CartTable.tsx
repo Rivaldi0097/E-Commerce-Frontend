@@ -17,16 +17,19 @@ type cart = {
 };
 
 function CartTable() {
+  var cookies = new Cookies();
+  const userId = cookies.get('userId');
   const [cartData, setCartData] = useState<cart[]>([]);
   const [cartId, setCartId] = useState<string>("");
   const navigate = useNavigate();
   var total = 0;
   var cookies = new Cookies();
-  const userId = cookies.get("userId");
 
   const getCartData = () => {
     axios
-      .get(`${process.env.REACT_APP_HOSTNAME}/api/cart/${userId}`)
+      .get(
+        `${process.env.REACT_APP_HOSTNAME}/api/cart/${userId}`
+      )
       .then((res) => {
         setCartData(res.data.products);
         setCartId(res.data._id);
