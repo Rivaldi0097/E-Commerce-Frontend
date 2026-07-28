@@ -41,7 +41,7 @@ function CategoryProducts() {
     }
 
     document.documentElement.style.overflow = showModal ? "hidden" : "auto";
-  }, [categoryName, showModal]);
+  }, [categoryName, showModal, AllProductsData, AllProductsSuccess]);
 
   const closeModal = () => {
     console.log("close modal");

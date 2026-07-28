@@ -10,7 +10,6 @@ import Box from "../assets/box.svg";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import StatusModal from "../components/StatusModal";
-import { isElementAccessExpression } from "typescript";
 
 function Product() {
   const location = useLocation();

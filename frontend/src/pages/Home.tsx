@@ -18,9 +18,9 @@ function Home() {
   const [filteredProducts, setFilteredProducts] = useState<
     ProductModel[] | undefined
   >([]);
-  const { data: categoriesData, isLoading: categoriesLoading } =
+  const { data: categoriesData } =
     useGetProductCategoriesQuery([]);
-  const { data: productData, isLoading: productLoading } = useGetProductsQuery(
+  const { data: productData } = useGetProductsQuery(
     []
   );
   const [selectedCategories, setSelectedCategories] = useState<string>("all");

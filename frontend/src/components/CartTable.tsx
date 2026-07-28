@@ -23,9 +23,9 @@ function CartTable() {
   const [cartId, setCartId] = useState<string>("");
   const navigate = useNavigate();
   var total = 0;
-  var cookies = new Cookies();
 
-  const getCartData = () => {
+  useEffect(() => {
+    const getCartData = () => {
     axios
       .get(
         `${process.env.REACT_APP_HOSTNAME}/api/cart/${userId}`
@@ -34,11 +34,10 @@ function CartTable() {
         setCartData(res.data.products);
         setCartId(res.data._id);
       });
-  };
+    };
 
-  useEffect(() => {
-    getCartData();
-  }, []);
+    getCartData()
+  }, [userId]);
 
   const updateQty = (productId: string, type: string) => {
     var typeBool = type === "increase" ? true : false;

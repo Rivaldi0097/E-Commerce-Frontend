@@ -6,21 +6,21 @@ import "../styles/login.css";
 import Logo from "../assets/logo-no-background.svg";
 import axios from "axios";
 
-interface SignupResponse {
-    _id: string,
-    firstName: string,
-    lastName: string,
-    userName: string,
-    password: string,
-    email: string,
-    phoneNumber: number,
-    address:{
-        street: string,
-        city: string,
-        state: string,
-        zip: number
-    }
-}
+// interface SignupResponse {
+//     _id: string,
+//     firstName: string,
+//     lastName: string,
+//     userName: string,
+//     password: string,
+//     email: string,
+//     phoneNumber: number,
+//     address:{
+//         street: string,
+//         city: string,
+//         state: string,
+//         zip: number
+//     }
+// }
 
 function SignUp() {
 
@@ -61,7 +61,7 @@ function SignUp() {
 
             console.log(res)
 
-            const cartRes = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/cart/`, {
+            await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/cart/`, {
                 userId: await res.data._id
             })
     

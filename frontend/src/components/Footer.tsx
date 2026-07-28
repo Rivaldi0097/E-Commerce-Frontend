@@ -21,19 +21,19 @@ function Footer() {
             <div className='FooterOuter'>
 
                 <div className='PaymentColumn'>
-                    <img src={Logo} className='FooterLogo' />
+                    <img src={Logo} className='FooterLogo'  alt='footerlogo'/>
 
                     <p>A wallet friendly E-commerce for our customer.</p>
 
                     <h4>Accepted Payment</h4>
 
                     <div className='PaymentLogo'>
-                        <img src={Visa} />
-                        <img src={MasterCard} />
-                        <img src={Alipay} />
-                        <img src={GooglePay} />
-                        <img src={ApplePay} />
-                        <img src={PayPal} />
+                        <img src={Visa} alt='visa' />
+                        <img src={MasterCard} alt='mastercard'/>
+                        <img src={Alipay} alt='alipay'/>
+                        <img src={GooglePay} alt='googlepay'/>
+                        <img src={ApplePay} alt='applepay'/>
+                        <img src={PayPal} alt='paypal'/>
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@ function Footer() {
                     <h4>Categories</h4>
                     {department.map((name: string) => {
                         return(
-                            <a className='Cursor' key={name}>{name}</a>
+                            <a className='Cursor' key={name} href='/'>{name}</a>
                         )
                     })}
                 </div>
@@ -50,7 +50,7 @@ function Footer() {
                     <h4>About Us</h4>
                     {aboutUs.map((name: string) => {
                         return(
-                            <a className='Cursor' key={name}>{name}</a>
+                            <a className='Cursor' key={name} href='/'>{name}</a>
                         )
                     })}
                 </div>
@@ -59,7 +59,7 @@ function Footer() {
                     <h4>Services</h4>
                     {services.map((name: string) => {
                         return(
-                            <a className='Cursor' key={name}>{name}</a>
+                            <a className='Cursor' key={name} href='/'>{name}</a>
                         )
                     })}
                 </div>
@@ -68,7 +68,7 @@ function Footer() {
                     <h4>Help</h4>
                     {help.map((name: string) => {
                         return(
-                            <a className='Cursor' key={name}>{name}</a>
+                            <a className='Cursor' key={name} href='/'>{name}</a>
                         )
                     })}
                 </div>

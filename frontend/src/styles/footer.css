@@ -1,5 +1,6 @@
 .Cursor{
     cursor: pointer;
+     text-decoration: none;
 }
 
 .FooterContainer{

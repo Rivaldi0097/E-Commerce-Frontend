@@ -16,6 +16,7 @@ function StatusModal({
             <img
               src={close}
               className="closeIcon"
+              alt="closeicon"
               onClick={() => {
                 setClose();
               }}

@@ -13,7 +13,7 @@ function ResponsiveCategoryMenu({
   setShowCategory,
   setMenu,
 }: IResponsiveCategoryMenu) {
-  const { data: categoriesData, isSuccess: categoriesSuccess } =
+  const { data: categoriesData } =
     useGetProductCategoriesQuery([]);
   const navigate = useNavigate();
 

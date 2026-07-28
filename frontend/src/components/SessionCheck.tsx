@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Loading from './Loading';
@@ -7,7 +7,8 @@ import Loading from './Loading';
 
 function SessionCheck() {
 
-    var cookies = new Cookies();
+    // 1. Wrap the initialization in useMemo
+    const cookies = useMemo(() => new Cookies(), []);
     const [output, setOutput] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -16,7 +17,7 @@ function SessionCheck() {
 
             try {
 
-                const res = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/authentication`, {
+                await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/authentication`, {
                     sessionId: cookies.get('sessionId')
                 })
 
@@ -40,7 +41,7 @@ function SessionCheck() {
 
         check()
 
-    }, [])
+    }, [cookies])
 
     //check if there is no session Id, if not straight away lead user to login page
     if(!cookies.get('sessionId')){

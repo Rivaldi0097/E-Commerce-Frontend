@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import "../styles/slider.css";
 import Keyboard from "../assets/keyboard.avif";
 import Watch from "../assets/watch.avif";

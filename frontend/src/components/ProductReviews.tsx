@@ -19,7 +19,7 @@ function ProductReviews() {
         `${process.env.REACT_APP_HOSTNAME}/api/reviews/64dccb9d3ff94327259d9ae6`
       )
       .then((res) => {
-        if (res.data.length != 0) {
+        if (res.data.length !== 0) {
           console.log(res);
 
           //to give the data page id

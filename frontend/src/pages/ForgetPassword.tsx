@@ -1,14 +1,11 @@
 "Use client"
 
 import { useState } from "react";
-import axios, { AxiosError } from "axios";
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 import "../styles/login.css";
 import Logo from "../assets/logo-no-background.svg";
 
 function ForgetPassword() {
-
-    const navigate = useNavigate();
 
     const [email, setEmail] = useState<string>("");
     const [disable, setDisable] = useState<boolean>(false);
@@ -21,7 +18,7 @@ function ForgetPassword() {
 
         try {
             
-            const res = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/resetPasswordToken`, {
+            await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/resetPasswordToken`, {
                 email: email
             })
             setSuccess('success')

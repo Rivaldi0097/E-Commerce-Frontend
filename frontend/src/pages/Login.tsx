@@ -120,6 +120,7 @@ function Login() {
 
                         <a
                             onClick={() => {navigate('/forgetPassword/enterEmail')}}
+                            href="/forgetPassword/enterEmail"
                             style={{
                                 marginTop: '20px',
                                 textDecoration: 'underline',

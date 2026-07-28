@@ -1,7 +1,7 @@
 import { useGetProductsQuery } from "../redux/productSlice";
 import { ProductModel } from "../models/productModel";
 import ProductListings from "../components/ProductListings";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import StatusModal from "../components/StatusModal";
 import axios from "axios";
@@ -27,7 +27,7 @@ function SearchResults() {
       navigate("/");
     }
     document.documentElement.style.overflow = showModal ? "hidden" : "auto";
-  }, [keyword, showModal]);
+  }, [keyword, showModal, navigate, productsData]);
 
   const closeModal = () => {
     console.log("close modal");

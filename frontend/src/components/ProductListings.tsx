@@ -16,7 +16,6 @@ function ProductListings({data}: HomeProductsProps) {
     
     var cookies = new Cookies();
     const userId = cookies.get('userId');
-    const [products, setProducts] =  useState<any>([])
     const [cartId, setCartId] = useState<string>("")
     const navigate = useNavigate();
 

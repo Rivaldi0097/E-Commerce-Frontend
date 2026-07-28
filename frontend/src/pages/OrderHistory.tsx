@@ -16,7 +16,7 @@ function OrderHistory() {
       .then((res) => {
         setOrdersData(res.data);
       });
-  }, []);
+  }, [userId]);
 
   return (
     <div className="order__container">

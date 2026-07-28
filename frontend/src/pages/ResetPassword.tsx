@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios, {isAxiosError} from "axios";
+import axios from "axios";
 import "../styles/login.css";
 import Logo from "../assets/logo-no-background.svg";
 import showPasswordEye from "../assets/showPassword.svg";
@@ -37,7 +37,7 @@ function ResetPassword() {
 
             try {
 
-                const res = await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/resetPassword`, {
+                await axios.post(`${process.env.REACT_APP_HOSTNAME}/api/users/resetPassword`, {
                     uid: uid,
                     token: token,
                     newPassword: newPassword
@@ -96,7 +96,8 @@ function ResetPassword() {
                                 disabled={disable}
                             />
                             <img 
-                                src={showPassword? showPasswordEye : hidePasswordEye} 
+                                src={showPassword? showPasswordEye : hidePasswordEye}
+                                alt="passwordIcon"
                                 className="PasswordIcon"
                                 onClick={() => {
                                     setShowPassword(!showPassword)
@@ -117,6 +118,7 @@ function ResetPassword() {
                             <img 
                                 src={showPassword? showPasswordEye : hidePasswordEye} 
                                 className="PasswordIcon"
+                                alt="passwordIcon"
                                 onClick={() => {
                                     setShowPassword(!showPassword)
                                     setPasswordInputType(passwordInputType === 'text'? 'password':'text')

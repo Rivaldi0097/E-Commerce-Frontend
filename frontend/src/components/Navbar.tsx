@@ -1,5 +1,4 @@
 import "../styles/navbar.css";
-import Logo from "../assets/logo-no-background.svg";
 import Menu from "../assets/menu.svg";
 import User from "../assets/user.svg";
 import Cart from "../assets/cart.svg";
@@ -7,9 +6,8 @@ import Arrow from "../assets/arrow.svg";
 import Search from "../assets/search.svg";
 import CategoryMenu from "./CategoryMenu";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import ResponsiveCategoryMenu from "./ResponsiveCategoryMenu";
-import { walkUpBindingElementsAndPatterns } from "typescript";
 import Cookies from "universal-cookie";
 
 function Navbar() {
@@ -18,7 +16,7 @@ function Navbar() {
   const [keyword, setKeyword] = useState<string>("");
   const [menu, setMenu] = useState<boolean>(false);
   const [width, setWidth] = useState<number>(window.innerWidth);
-  var cookies = new Cookies;
+  var cookies = new Cookies();
 
   const handleKeyChange = (e: any) => {
     // to set the state of keyword on every change

@@ -8,7 +8,7 @@ interface ICategoryMenu {
 }
 
 function CategoryMenu({ showCategory, setShowCategory }: ICategoryMenu) {
-  const { data: categoriesData, isSuccess: categoriesSuccess } =
+  const { data: categoriesData } =
     useGetProductCategoriesQuery([]);
   const navigate = useNavigate();
 
